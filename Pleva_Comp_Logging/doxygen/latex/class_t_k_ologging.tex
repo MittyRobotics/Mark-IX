@@ -1,0 +1,82 @@
+\hypertarget{class_t_k_ologging}{\section{T\-K\-Ologging Class Reference}
+\label{class_t_k_ologging}\index{T\-K\-Ologging@{T\-K\-Ologging}}
+}
+
+
+Logging class used for Competition match logging to the C\-R\-I\-O.  
+
+
+
+
+{\ttfamily \#include $<$T\-K\-O\-Logging.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_t_k_ologging_a1fe1f55ccd1a5251de09113052bbb4fe}{open\-Log\-File} ()
+\begin{DoxyCompactList}\small\item\em This function is called in the constructor and is used to open the file to allow logging. \end{DoxyCompactList}\item 
+int \hyperlink{class_t_k_ologging_a15d31e7c126a6640ad3f65ae1a8c69df}{close\-Log\-File} ()
+\begin{DoxyCompactList}\small\item\em This function is called in the destructor and is used to close the file at the end of a match. \end{DoxyCompactList}\item 
+int \hyperlink{class_t_k_ologging_a31c68d3810943cc427d0b8114abc4ce8}{write\-To\-File} (string s)
+\begin{DoxyCompactList}\small\item\em This function is called by the code to log a string to the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Logging class used for Competition match logging to the C\-R\-I\-O. 
+
+This is used to write strings to a file on the crio at /log/comp.txt . That also means you need to setup that directory on the C\-R\-I\-O or face errors. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_t_k_ologging_a15d31e7c126a6640ad3f65ae1a8c69df}{\index{T\-K\-Ologging@{T\-K\-Ologging}!close\-Log\-File@{close\-Log\-File}}
+\index{close\-Log\-File@{close\-Log\-File}!TKOlogging@{T\-K\-Ologging}}
+\subsubsection[{close\-Log\-File}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf T\-K\-Ologging\-::close\-Log\-File} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_ologging_a15d31e7c126a6640ad3f65ae1a8c69df}
+
+
+This function is called in the destructor and is used to close the file at the end of a match. 
+
+\begin{DoxyReturn}{Returns}
+This func returns 0 for success and -\/1 if it fails. 
+\end{DoxyReturn}
+\hypertarget{class_t_k_ologging_a1fe1f55ccd1a5251de09113052bbb4fe}{\index{T\-K\-Ologging@{T\-K\-Ologging}!open\-Log\-File@{open\-Log\-File}}
+\index{open\-Log\-File@{open\-Log\-File}!TKOlogging@{T\-K\-Ologging}}
+\subsubsection[{open\-Log\-File}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf T\-K\-Ologging\-::open\-Log\-File} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_ologging_a1fe1f55ccd1a5251de09113052bbb4fe}
+
+
+This function is called in the constructor and is used to open the file to allow logging. 
+
+\begin{DoxyReturn}{Returns}
+This func returns 1 if it succeeds and -\/1 if it fails. 
+\end{DoxyReturn}
+\hypertarget{class_t_k_ologging_a31c68d3810943cc427d0b8114abc4ce8}{\index{T\-K\-Ologging@{T\-K\-Ologging}!write\-To\-File@{write\-To\-File}}
+\index{write\-To\-File@{write\-To\-File}!TKOlogging@{T\-K\-Ologging}}
+\subsubsection[{write\-To\-File}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf T\-K\-Ologging\-::write\-To\-File} (
+\begin{DoxyParamCaption}
+\item[{string}]{s}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_ologging_a31c68d3810943cc427d0b8114abc4ce8}
+
+
+This function is called by the code to log a string to the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & string to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This func returns the number of character written to file and -\/1 if it fails. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+T\-K\-O\-Logging.\-h\item 
+T\-K\-O\-Logging.\-cpp\end{DoxyCompactItemize}
