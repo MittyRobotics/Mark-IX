@@ -1,0 +1,82 @@
+\hypertarget{classlogging}{\section{logging Class Reference}
+\label{classlogging}\index{logging@{logging}}
+}
+
+
+Logging class used for Competition match logging to the C\-R\-I\-O.  
+
+
+
+
+{\ttfamily \#include $<$T\-K\-O\-Logging.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classlogging_abf85b67f1af4a0d07688de0a28732f26}{open\-Log\-File} ()
+\begin{DoxyCompactList}\small\item\em This function is called in the constructor and is used to open the file to allow logging. \end{DoxyCompactList}\item 
+int \hyperlink{classlogging_a64ba1172f5c9b91f06da8b0d98be0aff}{close\-Log\-File} ()
+\begin{DoxyCompactList}\small\item\em This function is called in the destructor and is used to close the file at the end of a match. \end{DoxyCompactList}\item 
+int \hyperlink{classlogging_ab0662a992d8c4aa97f41762f55d20876}{write\-To\-File} (string s)
+\begin{DoxyCompactList}\small\item\em This function is called by the code to log a string to the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Logging class used for Competition match logging to the C\-R\-I\-O. 
+
+This is used to write strings to a file on the crio at /log/comp.txt . That also means you need to setup that directory on the C\-R\-I\-O or face errors. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classlogging_a64ba1172f5c9b91f06da8b0d98be0aff}{\index{logging@{logging}!close\-Log\-File@{close\-Log\-File}}
+\index{close\-Log\-File@{close\-Log\-File}!logging@{logging}}
+\subsubsection[{close\-Log\-File}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf logging\-::close\-Log\-File} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogging_a64ba1172f5c9b91f06da8b0d98be0aff}
+
+
+This function is called in the destructor and is used to close the file at the end of a match. 
+
+\begin{DoxyReturn}{Returns}
+This func returns 0 for success and -\/1 if it fails. 
+\end{DoxyReturn}
+\hypertarget{classlogging_abf85b67f1af4a0d07688de0a28732f26}{\index{logging@{logging}!open\-Log\-File@{open\-Log\-File}}
+\index{open\-Log\-File@{open\-Log\-File}!logging@{logging}}
+\subsubsection[{open\-Log\-File}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf logging\-::open\-Log\-File} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogging_abf85b67f1af4a0d07688de0a28732f26}
+
+
+This function is called in the constructor and is used to open the file to allow logging. 
+
+\begin{DoxyReturn}{Returns}
+This func returns 1 if it succeeds and -\/1 if it fails. 
+\end{DoxyReturn}
+\hypertarget{classlogging_ab0662a992d8c4aa97f41762f55d20876}{\index{logging@{logging}!write\-To\-File@{write\-To\-File}}
+\index{write\-To\-File@{write\-To\-File}!logging@{logging}}
+\subsubsection[{write\-To\-File}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf logging\-::write\-To\-File} (
+\begin{DoxyParamCaption}
+\item[{string}]{s}
+\end{DoxyParamCaption}
+)}}\label{classlogging_ab0662a992d8c4aa97f41762f55d20876}
+
+
+This function is called by the code to log a string to the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This func returns the number of character written to file and -\/1 if it fails. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+T\-K\-O\-Logging.\-h\item 
+T\-K\-O\-Logging.\-cpp\end{DoxyCompactItemize}
