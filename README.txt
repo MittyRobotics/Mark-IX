@@ -6,7 +6,7 @@ Answer: 'l'
 Ill be at robotics when I get done with some stuff so i will be there at 8:00 - Matt
 
 
-Summer meeting schedule (for Varun and Pleva):
+Summer meeting schedule (for Varun and Pleva): (6:30 - 9:30 p.m.)
 	May 29, 30
 	June 5, 6
 	June 26, 27
