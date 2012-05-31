@@ -3,9 +3,10 @@ Just something I thought was funny: If you think C++ is not overly complicated, 
 Here's something else: what does 2["hello"] evaluate to?
 Answer: 'l'
 // saw this, thought it worked quite well -Light http://bash.org/?240849
+Ill be at robotics when I get done with some stuff so i will be there at 8:00 - Matt
 
 
-Meeting schedule (for Varun and Pleva):
+Summer meeting schedule (for Varun and Pleva):
 	May 29, 30
 	June 5, 6
 	June 26, 27
@@ -25,7 +26,7 @@ TODOs:
 		Make a series of .doc files that give detailed instructions to non-programmers about how to use the Classmate, how to do networking, etc.
 			Print and distribute these to the entire team
 		Make a series of .txt files that give detailed instructions to programmers about how to use Wind River, how to download code, etc.
-	If you want simulator, GET DEV-C++. See README_DOCS.txt for more details. -Varun
+	If you want simulator, GET DEV-C++. See README_DOCS.txt for more details. -Varun (Project can also be found here: https://bitbucket.org/programming1351/wpilib-simulator)
 	For Gryo programming check out the gyro programming pdf in docs
 	Learn about Multitasking: http://www-kryo.desy.de/documents/vxWorks/V5.5/vxworks/guide/index.html
 	Learn your for- loops please. -Tanay
