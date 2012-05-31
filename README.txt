@@ -2,6 +2,7 @@ Just something I thought was funny: If you think C++ is not overly complicated, 
 - Matt
 Here's something else: what does 2["hello"] evaluate to?
 Answer: 'l'
+What does C++ say to C? YOU HAVE NO CLASS :D -Braginsky
 // saw this, thought it worked quite well -Light http://bash.org/?240849
 Ill be at robotics when I get done with some stuff so i will be there at 8:00 - Matt
 
@@ -36,4 +37,3 @@ Team 971 Scouting: mvanryswyk@gmail.com
 Some random alum who knows about Kinect: John Sphar '06 (jlsphar@gmail.com)
 Matt Pleva's email address: matthewpleva11@mittymonarch.com
 Varun Naik's email address: varunnaik12@mittymonarch.com
-TEST
