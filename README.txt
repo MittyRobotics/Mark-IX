@@ -2,12 +2,10 @@ Just something I thought was funny: If you think C++ is not overly complicated, 
 - Matt
 Here's something else: what does 2["hello"] evaluate to?
 Answer: 'l'
-What does C++ say to C? YOU HAVE NO CLASS :D -Braginsky
 // saw this, thought it worked quite well -Light http://bash.org/?240849
-Ill be at robotics when I get done with some stuff so i will be there at 8:00 - Matt
+What did C++ say to C? "You've got no class." -Varun BAM
 
-
-Summer meeting schedule (for Varun and Pleva): (6:30 - 9:30 p.m.)
+Summer meeting schedule (for Varun and Pleva):
 	May 29, 30
 	June 5, 6
 	June 26, 27
