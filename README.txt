@@ -13,7 +13,7 @@ Summer meeting schedule (for Varun and Pleva):
 	July 24, 25
 	August 14, 15
 Summer projects:
-	Doxygen on website + commenting code
+	Doxygen on website + commenting code //Check out the new Doxygen Test, found in Mark-ix repository
 	Shifting to bitbucket
 	C+ ! // how could anyone forget this?
 	cRIO simulator/emulator/framework

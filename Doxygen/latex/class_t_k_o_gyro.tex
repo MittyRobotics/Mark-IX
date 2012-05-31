@@ -1,0 +1,161 @@
+\hypertarget{class_t_k_o_gyro}{\section{T\-K\-O\-Gyro Class Reference}
+\label{class_t_k_o_gyro}\index{T\-K\-O\-Gyro@{T\-K\-O\-Gyro}}
+}
+
+
+{\ttfamily \#include $<$T\-K\-O\-Gyro.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_t_k_o_gyro_a38334c169e97dceb6457e989875e93de}{T\-K\-O\-Gyro} (U\-I\-N\-T8 module\-Number, U\-I\-N\-T32 channel)
+\item 
+\hyperlink{class_t_k_o_gyro_a329cee1199b0935e646591c548e3502a}{T\-K\-O\-Gyro} (U\-I\-N\-T32 channel)
+\item 
+\hyperlink{class_t_k_o_gyro_ae4b751a9be6ae337957b20e3c3083e37}{T\-K\-O\-Gyro} (Analog\-Channel $\ast$channel)
+\item 
+\hypertarget{class_t_k_o_gyro_add8212e066db0ef3f2bdd01a9d01bb14}{{\bfseries T\-K\-O\-Gyro} (Analog\-Channel \&channel)}\label{class_t_k_o_gyro_add8212e066db0ef3f2bdd01a9d01bb14}
+
+\item 
+virtual \hyperlink{class_t_k_o_gyro_a0a59a50d0805a6f98a507933f77ed037}{$\sim$\-T\-K\-O\-Gyro} ()
+\item 
+virtual float \hyperlink{class_t_k_o_gyro_af2f5666e5f5d2402ecec2ac87613dc8c}{Get\-Angle} ()
+\item 
+void \hyperlink{class_t_k_o_gyro_a3b1296faa69e1175d3241f002edbb45e}{Set\-Sensitivity} (float volts\-Per\-Degree\-Per\-Second)
+\item 
+virtual void \hyperlink{class_t_k_o_gyro_a8d52b80879305a98620be59a5e089b64}{Reset} ()
+\item 
+double \hyperlink{class_t_k_o_gyro_ae5ab4261974fea729d252dbdad78326a}{P\-I\-D\-Get} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_t_k_o_gyro_a794fe010f1390eb92d175ce8ace372fd}{static const U\-I\-N\-T32 {\bfseries k\-Oversample\-Bits} = 10}\label{class_t_k_o_gyro_a794fe010f1390eb92d175ce8ace372fd}
+
+\item 
+\hypertarget{class_t_k_o_gyro_a52e7e66f6fcdc4f9f34c0de39d88e427}{static const U\-I\-N\-T32 {\bfseries k\-Average\-Bits} = 0}\label{class_t_k_o_gyro_a52e7e66f6fcdc4f9f34c0de39d88e427}
+
+\item 
+\hypertarget{class_t_k_o_gyro_aa6e80a68440185d245310d30e714a9c7}{static const float {\bfseries k\-Samples\-Per\-Second} = 1000.\-0}\label{class_t_k_o_gyro_aa6e80a68440185d245310d30e714a9c7}
+
+\item 
+\hypertarget{class_t_k_o_gyro_a0c74698b86f1125fac52fc9d3e2d4bf2}{static const float {\bfseries k\-Calibration\-Sample\-Time} = 5.\-0}\label{class_t_k_o_gyro_a0c74698b86f1125fac52fc9d3e2d4bf2}
+
+\item 
+\hypertarget{class_t_k_o_gyro_aeb705e001e8af34a337ca38d178f386d}{static const float {\bfseries k\-Default\-Volts\-Per\-Degree\-Per\-Second} = 0.\-007}\label{class_t_k_o_gyro_aeb705e001e8af34a337ca38d178f386d}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Use a rate \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} to return the robots heading relative to a starting position. The \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} class tracks the robots heading based on the starting position. As the robot rotates the new heading is computed by integrating the rate of rotation returned by the sensor. When the class is instantiated, it does a short calibration routine where it samples the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} while at rest to determine the default offset. This is subtracted from each sample to determine the heading. This \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} class must be used with a channel that is assigned one of the Analog accumulators from the F\-P\-G\-A. See Analog\-Channel for the current accumulator assignments. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_t_k_o_gyro_a38334c169e97dceb6457e989875e93de}{\index{T\-K\-O\-Gyro@{T\-K\-O\-Gyro}!T\-K\-O\-Gyro@{T\-K\-O\-Gyro}}
+\index{T\-K\-O\-Gyro@{T\-K\-O\-Gyro}!TKOGyro@{T\-K\-O\-Gyro}}
+\subsubsection[{T\-K\-O\-Gyro}]{\setlength{\rightskip}{0pt plus 5cm}T\-K\-O\-Gyro\-::\-T\-K\-O\-Gyro (
+\begin{DoxyParamCaption}
+\item[{U\-I\-N\-T8}]{module\-Number, }
+\item[{U\-I\-N\-T32}]{channel}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_gyro_a38334c169e97dceb6457e989875e93de}
+\hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} constructor given a slot and a channel.
+
+
+\begin{DoxyParams}{Parameters}
+{\em module\-Number} & The analog module the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} is connected to (1). \\
+\hline
+{\em channel} & The analog channel the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} is connected to (1 or 2). \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_t_k_o_gyro_a329cee1199b0935e646591c548e3502a}{\index{T\-K\-O\-Gyro@{T\-K\-O\-Gyro}!T\-K\-O\-Gyro@{T\-K\-O\-Gyro}}
+\index{T\-K\-O\-Gyro@{T\-K\-O\-Gyro}!TKOGyro@{T\-K\-O\-Gyro}}
+\subsubsection[{T\-K\-O\-Gyro}]{\setlength{\rightskip}{0pt plus 5cm}T\-K\-O\-Gyro\-::\-T\-K\-O\-Gyro (
+\begin{DoxyParamCaption}
+\item[{U\-I\-N\-T32}]{channel}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}}\label{class_t_k_o_gyro_a329cee1199b0935e646591c548e3502a}
+\hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} constructor with only a channel.
+
+Use the default analog module slot.
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The analog channel the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} is connected to. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_t_k_o_gyro_ae4b751a9be6ae337957b20e3c3083e37}{\index{T\-K\-O\-Gyro@{T\-K\-O\-Gyro}!T\-K\-O\-Gyro@{T\-K\-O\-Gyro}}
+\index{T\-K\-O\-Gyro@{T\-K\-O\-Gyro}!TKOGyro@{T\-K\-O\-Gyro}}
+\subsubsection[{T\-K\-O\-Gyro}]{\setlength{\rightskip}{0pt plus 5cm}T\-K\-O\-Gyro\-::\-T\-K\-O\-Gyro (
+\begin{DoxyParamCaption}
+\item[{Analog\-Channel $\ast$}]{channel}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}}\label{class_t_k_o_gyro_ae4b751a9be6ae337957b20e3c3083e37}
+\hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} constructor with a precreated analog channel object. Use this constructor when the analog channel needs to be shared. There is no reference counting when an Analog\-Channel is passed to the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro}. 
+\begin{DoxyParams}{Parameters}
+{\em channel} & The Analog\-Channel object that the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} is connected to. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_t_k_o_gyro_a0a59a50d0805a6f98a507933f77ed037}{\index{T\-K\-O\-Gyro@{T\-K\-O\-Gyro}!$\sim$\-T\-K\-O\-Gyro@{$\sim$\-T\-K\-O\-Gyro}}
+\index{$\sim$\-T\-K\-O\-Gyro@{$\sim$\-T\-K\-O\-Gyro}!TKOGyro@{T\-K\-O\-Gyro}}
+\subsubsection[{$\sim$\-T\-K\-O\-Gyro}]{\setlength{\rightskip}{0pt plus 5cm}T\-K\-O\-Gyro\-::$\sim$\-T\-K\-O\-Gyro (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_t_k_o_gyro_a0a59a50d0805a6f98a507933f77ed037}
+Delete (free) the accumulator and the analog components used for the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro}. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_t_k_o_gyro_af2f5666e5f5d2402ecec2ac87613dc8c}{\index{T\-K\-O\-Gyro@{T\-K\-O\-Gyro}!Get\-Angle@{Get\-Angle}}
+\index{Get\-Angle@{Get\-Angle}!TKOGyro@{T\-K\-O\-Gyro}}
+\subsubsection[{Get\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}float T\-K\-O\-Gyro\-::\-Get\-Angle (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_t_k_o_gyro_af2f5666e5f5d2402ecec2ac87613dc8c}
+Return the actual angle in degrees that the robot is currently facing.
+
+The angle is based on the current accumulator value corrected by the oversampling rate, the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} type and the A/\-D calibration values. The angle is continuous, that is can go beyond 360 degrees. This make algorithms that wouldn't want to see a discontinuity in the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} output as it sweeps past 0 on the second time around.
+
+\begin{DoxyReturn}{Returns}
+the current heading of the robot in degrees. This heading is based on integration of the returned rate from the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro}. 
+\end{DoxyReturn}
+\hypertarget{class_t_k_o_gyro_ae5ab4261974fea729d252dbdad78326a}{\index{T\-K\-O\-Gyro@{T\-K\-O\-Gyro}!P\-I\-D\-Get@{P\-I\-D\-Get}}
+\index{P\-I\-D\-Get@{P\-I\-D\-Get}!TKOGyro@{T\-K\-O\-Gyro}}
+\subsubsection[{P\-I\-D\-Get}]{\setlength{\rightskip}{0pt plus 5cm}double T\-K\-O\-Gyro\-::\-P\-I\-D\-Get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_gyro_ae5ab4261974fea729d252dbdad78326a}
+Get the angle in degrees for the P\-I\-D\-Source base object.
+
+\begin{DoxyReturn}{Returns}
+The angle in degrees. 
+\end{DoxyReturn}
+\hypertarget{class_t_k_o_gyro_a8d52b80879305a98620be59a5e089b64}{\index{T\-K\-O\-Gyro@{T\-K\-O\-Gyro}!Reset@{Reset}}
+\index{Reset@{Reset}!TKOGyro@{T\-K\-O\-Gyro}}
+\subsubsection[{Reset}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Gyro\-::\-Reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_t_k_o_gyro_a8d52b80879305a98620be59a5e089b64}
+Reset the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro}. Resets the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} to a heading of zero. This can be used if there is significant drift in the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} and it needs to be recalibrated after it has been running. \hypertarget{class_t_k_o_gyro_a3b1296faa69e1175d3241f002edbb45e}{\index{T\-K\-O\-Gyro@{T\-K\-O\-Gyro}!Set\-Sensitivity@{Set\-Sensitivity}}
+\index{Set\-Sensitivity@{Set\-Sensitivity}!TKOGyro@{T\-K\-O\-Gyro}}
+\subsubsection[{Set\-Sensitivity}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Gyro\-::\-Set\-Sensitivity (
+\begin{DoxyParamCaption}
+\item[{float}]{volts\-Per\-Degree\-Per\-Second}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_gyro_a3b1296faa69e1175d3241f002edbb45e}
+Set the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} type based on the sensitivity. This takes the number of volts/degree/second sensitivity of the \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} and uses it in subsequent calculations to allow the code to work with multiple gyros.
+
+
+\begin{DoxyParams}{Parameters}
+{\em volts\-Per\-Degree\-Per\-Second} & The type of \hyperlink{class_t_k_o_gyro}{T\-K\-O\-Gyro} specified as the voltage that represents one degree/second. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Vadim\-\_\-brandi\-\_\-autobalance/T\-K\-O\-Gyro.\-h\item 
+Vadim\-\_\-brandi\-\_\-autobalance/T\-K\-O\-Gyro.\-cpp\end{DoxyCompactItemize}

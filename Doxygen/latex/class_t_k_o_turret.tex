@@ -1,0 +1,112 @@
+\hypertarget{class_t_k_o_turret}{\section{T\-K\-O\-Turret Class Reference}
+\label{class_t_k_o_turret}\index{T\-K\-O\-Turret@{T\-K\-O\-Turret}}
+}
+
+
+{\ttfamily \#include $<$T\-K\-O\-Turret.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_t_k_o_turret_a7b94773cc4841e70f8d83a37804e4177}{void {\bfseries Set\-Speed} (float speed)}\label{class_t_k_o_turret_a7b94773cc4841e70f8d83a37804e4177}
+
+\item 
+\hypertarget{class_t_k_o_turret_a32318777a75e5a315f9fc04c84e49bf2}{void {\bfseries Switch\-Status} ()}\label{class_t_k_o_turret_a32318777a75e5a315f9fc04c84e49bf2}
+
+\item 
+\hypertarget{class_t_k_o_turret_a372478ac57ff02da1300830ca822c9f5}{char $\ast$ {\bfseries Get\-Status} ()}\label{class_t_k_o_turret_a372478ac57ff02da1300830ca822c9f5}
+
+\item 
+\hyperlink{class_t_k_o_turret_a8a4082b539c656705750570a6f06c232}{T\-K\-O\-Turret} (int port)
+\item 
+void \hyperlink{class_t_k_o_turret_a367b7dc5ca0648a363f6b475f1704556}{Move} (float setpoint)
+\item 
+void \hyperlink{class_t_k_o_turret_ae967823e31817fdacc8f5e2526f53b0c}{Automated} (float setpoint)
+\item 
+void \hyperlink{class_t_k_o_turret_aadf4bbca5ea49fbec7d883e7ac802072}{Enable} ()
+\item 
+void \hyperlink{class_t_k_o_turret_a9e35ec3866de6ee39e486a7cf623b47d}{Disable} ()
+\item 
+bool \hyperlink{class_t_k_o_turret_a8f32f133eb847d29784e6a2b341d90e1}{Is\-Manual} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_t_k_o_turret_a32ae6fbc7bb1fe2e5946e48b9acd9013}{static \hyperlink{class_t_k_o_turret}{T\-K\-O\-Turret} $\ast$ {\bfseries Get\-Instance} ()}\label{class_t_k_o_turret_a32ae6fbc7bb1fe2e5946e48b9acd9013}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_t_k_o_turret}{T\-K\-O\-Turret} class is our basic Turret device. It allows the user to automate the motion of the turret or control it manually. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_t_k_o_turret_a8a4082b539c656705750570a6f06c232}{\index{T\-K\-O\-Turret@{T\-K\-O\-Turret}!T\-K\-O\-Turret@{T\-K\-O\-Turret}}
+\index{T\-K\-O\-Turret@{T\-K\-O\-Turret}!TKOTurret@{T\-K\-O\-Turret}}
+\subsubsection[{T\-K\-O\-Turret}]{\setlength{\rightskip}{0pt plus 5cm}T\-K\-O\-Turret\-::\-T\-K\-O\-Turret (
+\begin{DoxyParamCaption}
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_turret_a8a4082b539c656705750570a6f06c232}
+Constructor for \hyperlink{class_t_k_o_turret}{T\-K\-O\-Turret} with a parameter for the turret port.
+
+Initializes the internal C\-A\-N\-Jaguar in k\-Position mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The turret port \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_t_k_o_turret_ae967823e31817fdacc8f5e2526f53b0c}{\index{T\-K\-O\-Turret@{T\-K\-O\-Turret}!Automated@{Automated}}
+\index{Automated@{Automated}!TKOTurret@{T\-K\-O\-Turret}}
+\subsubsection[{Automated}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Turret\-::\-Automated (
+\begin{DoxyParamCaption}
+\item[{float}]{setpoint}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_turret_ae967823e31817fdacc8f5e2526f53b0c}
+Shoots the ball from the spinner. \hypertarget{class_t_k_o_turret_a9e35ec3866de6ee39e486a7cf623b47d}{\index{T\-K\-O\-Turret@{T\-K\-O\-Turret}!Disable@{Disable}}
+\index{Disable@{Disable}!TKOTurret@{T\-K\-O\-Turret}}
+\subsubsection[{Disable}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Turret\-::\-Disable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_turret_a9e35ec3866de6ee39e486a7cf623b47d}
+Disables manual control for the turret. \hypertarget{class_t_k_o_turret_aadf4bbca5ea49fbec7d883e7ac802072}{\index{T\-K\-O\-Turret@{T\-K\-O\-Turret}!Enable@{Enable}}
+\index{Enable@{Enable}!TKOTurret@{T\-K\-O\-Turret}}
+\subsubsection[{Enable}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Turret\-::\-Enable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_turret_aadf4bbca5ea49fbec7d883e7ac802072}
+Enables manual control for the turret. \hypertarget{class_t_k_o_turret_a8f32f133eb847d29784e6a2b341d90e1}{\index{T\-K\-O\-Turret@{T\-K\-O\-Turret}!Is\-Manual@{Is\-Manual}}
+\index{Is\-Manual@{Is\-Manual}!TKOTurret@{T\-K\-O\-Turret}}
+\subsubsection[{Is\-Manual}]{\setlength{\rightskip}{0pt plus 5cm}bool T\-K\-O\-Turret\-::\-Is\-Manual (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_turret_a8f32f133eb847d29784e6a2b341d90e1}
+Returns true if the turret is in manual mode, and false otherwise. \hypertarget{class_t_k_o_turret_a367b7dc5ca0648a363f6b475f1704556}{\index{T\-K\-O\-Turret@{T\-K\-O\-Turret}!Move@{Move}}
+\index{Move@{Move}!TKOTurret@{T\-K\-O\-Turret}}
+\subsubsection[{Move}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Turret\-::\-Move (
+\begin{DoxyParamCaption}
+\item[{float}]{setpoint}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_turret_a367b7dc5ca0648a363f6b475f1704556}
+If the turret is in manual mode, moves the turret to the setpoint if the turret. If not, the setpoint is set, but the turret is not moved.
+
+
+\begin{DoxyParams}{Parameters}
+{\em setpoint} & The desired setpoint \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Tanay\-\_\-\-Auto\-Targetting/T\-K\-O\-Turret.\-h\item 
+Varun\-\_\-\-Shooter\-\_\-\-Heavily\-Commented/T\-K\-O\-Turret.\-h\item 
+Tanay\-\_\-\-Auto\-Targetting/T\-K\-O\-Turret.\-cpp\item 
+Varun\-\_\-\-Shooter\-\_\-\-Heavily\-Commented/T\-K\-O\-Turret.\-cpp\end{DoxyCompactItemize}
