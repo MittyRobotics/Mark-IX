@@ -2,6 +2,8 @@
 #define __TKORELAY_H
 #include "Definitions.h"
 
+///Wrapper for WPI Relay Class
+
 class TKORelay {
 public:
 	TKORelay(int port);

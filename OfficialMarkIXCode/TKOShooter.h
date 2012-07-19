@@ -3,6 +3,13 @@
 
 #include "Definitions.h"
 
+///Code for the Spinner
+/*!
+Code for our basic spinner device which is
+in charge of getting our motors up to speed.
+Initial code written and class assembled by Tanay
+Nathan.	
+*/	
 class TKOShooter {
 public:
 	TKOShooter(int port1, int port2);
@@ -11,7 +18,6 @@ public:
 	void DecreaseSpeed(float sp);
 	bool IsUpToSpeed();
 	void Shoot();
-	float CalculateVelocity(float dist, float height);
 	float GetSetpoint();
 	float GetSpeed();
 	void Reset();
@@ -22,7 +28,7 @@ private:
 	float setpoint, oldsetpoint, ramping;
 	bool _ready;
 	int counter;
-	float volts;
+	float volts;  /**< bool opened. Whether the file is open or not. */
 //	Timer _timer;
 };
 

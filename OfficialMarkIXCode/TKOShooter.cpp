@@ -1,11 +1,11 @@
 #include "TKOShooter.h"
 
-/**************************************************************
- * TKOShooter class that is our basic Spinner device which is *
- * in charge of getting our motors up to speed and calculating*
- * velocity. Initial code written and class assembled by Tanay*
- * Nathan.													  *
- **************************************************************/
+///Constructor for the TKOShooter class
+/*!
+	Initializes the Master spinner jaguar in Speed mode and the Slave spinner jaguar in percentVbus mode
+	\param int port1 - Jaguar1's ID (Master in Speed Mode)
+	\param int port2 - Jaguar2's ID (Slave in percentVbus Mode)
+*/ 
 
 TKOShooter::TKOShooter(int port1, int port2):
 	j1(port1, CANJaguar::kSpeed),
@@ -16,14 +16,20 @@ TKOShooter::TKOShooter(int port1, int port2):
 	j1.ConfigEncoderCodesPerRev(250);
 	j1.SetSafetyEnabled(true);
 	j2.SetSafetyEnabled(j1.IsSafetyEnabled());
-	oldsetpoint = 500;
+	oldsetpoint = 500;  
 	setpoint = 500;
 	counter = 0;
 	volts = 0;
 }
 
+///Destructor for the TKOShooter class
 TKOShooter::~TKOShooter() {}
 
+///Increases TKOShooter speed
+/*!
+	Ramps up speed to the new setpoint (4250 max)
+	\param float sp - New Setpoint in RPM
+*/
 void TKOShooter::IncreaseSpeed(float sp) {
 	oldsetpoint = setpoint;
 	setpoint = sp;
@@ -32,13 +38,20 @@ void TKOShooter::IncreaseSpeed(float sp) {
 	if (setpoint > oldsetpoint){
 		_ready = false;
 		for (float i = oldsetpoint; i < setpoint; i+= 50){
-			j1.Set(-i);
-			j2.Set(j1.GetOutputVoltage() / j1.GetBusVoltage());
+			j1.Set(-i);  //J1 IS IN SPEED MODE
+			
+			j2.Set(j1.GetOutputVoltage() / j1.GetBusVoltage());  //J2 IS IN %VBUS
 		}
 		_ready = true;
 		oldsetpoint = setpoint;
 	}
 }
+
+///Decreases TKOShooter speed
+/*!
+	Ramps down speed to the new setpoint (0 min)
+	\param float sp - New Setpoint in RPM
+*/
 
 void TKOShooter::DecreaseSpeed(float sp) {
 	oldsetpoint = setpoint;
@@ -56,32 +69,61 @@ void TKOShooter::DecreaseSpeed(float sp) {
 	}
 }
 
+///Checks if TKOShooter is up to speed
+/*!
+	Returns true if TKOShooter actual speed matches the setpoint (speed it is supposed to be at)
+	\return bool - true if it is up to speed, false if not
+	\return bool - true if it is up to speed, false if not
+*/
+
 bool TKOShooter::IsUpToSpeed() {
 	if (_ready == true && oldsetpoint == setpoint && setpoint > .25 * 4250)
 		return true;
 	return false;
 }
+
+///Shoots the ball
+/*!
+	Sets jaguar1 to the setpoint (RPM) and sets jaguar2 to voltage of j1 divided by bus voltage at j1. Thus, if battery and therefore bus voltage is low, j1 and j2 output voltage and velocity will remain equal.
+*/
+
 void TKOShooter::Shoot(){
 	volts = j1.GetOutputVoltage() / j1.GetBusVoltage();
 	j1.Set(-setpoint);
 	j2.Set(volts);	
 }
 
-float TKOShooter::CalculateVelocity(float dist, float height) {	
-	float v = sqrt((HALF_G * dist * dist * (TAN_SPINNER_THETA * TAN_SPINNER_THETA + 1))/ (dist * TAN_SPINNER_THETA - height));
-	return v * 2 * PI * RADIUS_WHEELS;
-}
+///	Prints output voltage of j1 (Master Jaguar) to the DSLog
+/*!
+*/
 
 void TKOShooter::ReadVoltage() {
 	DSLog(5, "Voltage: %f", j1.GetOutputVoltage());
 }
+
+/// Gets the speed of j1 (Master Jaguar)
+/*!
+*/
+
 float TKOShooter::GetSpeed() {
 	return j1.GetSpeed();
 }
 
+/// Returns the setpoint of the TKOShooter
+/*!
+	\return float setpoint - The setpoint which the spinner is trying to reach
+*/
+
 float TKOShooter::GetSetpoint() {
 	return setpoint;
 }
+
+/// Resets the Jaguars
+/*!
+	Sets PID, SpeedReference to the QuadEncoder, EncoderCodes/Rev = 250, and Set Safety is enabled on both Jaguars
+	 
+	 
+*/
 
 void TKOShooter::Reset() {
 	j1.SetPID(SPINNER_kP, SPINNER_kI, SPINNER_kD);
@@ -91,6 +133,14 @@ void TKOShooter::Reset() {
 	j2.SetSafetyEnabled(j1.IsSafetyEnabled());
 }
 
+///Checks if the TKOShooter's jaguars are alive
+/*!
+	 
+	\return j1.IsAlive()
+	\return j2.IsAlive()
+*/
+
 bool TKOShooter::IsAlive() {
 	return j1.IsAlive() && j2.IsAlive();
 }
+

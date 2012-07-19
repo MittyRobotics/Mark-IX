@@ -1,5 +1,13 @@
 #include "TKOConveyor.h"
-
+///Constructor for the TKOConveyor class
+/*!
+	Initializes the 3 switches for the state system and the 2 conveyor jaguars.
+	\param int port1 - ID for switch1
+	\param int port2 - ID for switch2
+	\param int port3 - ID for switch3
+	\param int port4 - ID for upper conveyor's Jaguar
+	\param int port5 - ID for lower conveyor's Jaguar
+*/
 TKOConveyor::TKOConveyor(int port1, int port2, int port3, int port4, int port5):
 	_switch1(port1),
 	_switch2(port2),
@@ -9,9 +17,19 @@ TKOConveyor::TKOConveyor(int port1, int port2, int port3, int port4, int port5):
 {
 	_balls.reserve(6);		// In case there are more than 3 balls in the system, make maximum size of list 6
 }
-
+///Destructor for the TKOConveyor class
 TKOConveyor::~TKOConveyor() {}
 
+///Runs the conveyors using the state system, which is based on inputs from limit switches
+/*!
+	The state system classifies the location of each ball as on the top limit switch, on the middle limit switch, on the bottom limit switch,
+	between two switches, or shot. The location of each ball moves up whenever it releases a limit switch or presses a new limit switch.
+	When 3 balls are in the system, the state system will not allow the conveyors to move up unless canShoot is true. However,
+	even if there are fewer than 3 balls in the system, canShoot can be set to true to turn on the upper conveyor and shoot the balls.
+	If the state system is ever overridden, the location of each ball will be lost, and the ball count will be set to 0.
+	The state system never turns the conveyors backward to move a ball down.
+	\param bool canShoot - true if the robot can turn on the upper conveyor to shoot the topmost ball, false otherwise
+*/
 void TKOConveyor::Run(bool canShoot) {
 	// Add balls into system if and only if a switch is pressed and the lowest ball is above the switch
 	TKOBall lowestBall;
@@ -69,6 +87,11 @@ void TKOConveyor::Run(bool canShoot) {
 	}
 }
 
+///Turns both conveyors forward
+/*!
+	Allows all balls to exit through the shooter, and sets internal ball count to 0.
+*/
+
 void TKOConveyor::OverrideAll() {
 	DSLog(2, "%d %d %d", _switch1.Get(), _switch2.Get(), _switch3.Get());
 	_upper.SetOn(2);
@@ -77,14 +100,29 @@ void TKOConveyor::OverrideAll() {
 		_balls.erase(_balls.begin());
 }
 
+///Checks if robot is allowed to pick up balls
+/*!
+	\return bool - true if amount of balls stored is less than 3, false otherwise.
+*/
+
 bool TKOConveyor::CanEnableIntake() {
 	return _balls.size() < 3;
 }
+
+///Stops both conveyors
+/*!
+*/
 
 void TKOConveyor::EndAll() {
 	_upper.SetOn(0);
 	_lower.SetOn(0);
 }
+
+///Turns both conveyors backward
+/*!
+	Allows all balls to exit through the bottom of the robot, and sets internal ball count to 0.
+*/
+
 void TKOConveyor::Reverse() {
 	DSLog(2, "%d %d %d", _switch1.Get(), _switch2.Get(), _switch3.Get());
 	_upper.SetOn(1);
@@ -92,6 +130,11 @@ void TKOConveyor::Reverse() {
 	while (_balls.size() > 0)
 		_balls.erase(_balls.begin());
 }
+
+///Get the amount of balls stored in the robot
+/*!
+	\return int - the number of balls stored
+*/
 
 int TKOConveyor::GetNumBalls() {
 	return _balls.size();

@@ -8,6 +8,16 @@
 #include "TKOLogging.h"
 #include <vector>
 
+///Code for the Conveyor
+/*!
+	(TODO: implement singleton model)
+	The TKOConveyor class represents the lower conveyor and the upper conveyor.
+	Values from a limit switch at the base of the lower conveyor, a limit switch between the two conveyors,
+	and a limit switch at the top of the upper conveyor form the basis of the state system,
+	which turns the conveyors forward or off automatically to move balls up into specific spots for shooting.
+	The TKOConveyor class also provides functions for manual control of the conveyors.
+*/
+
 class TKOConveyor {
 public:
 	TKOConveyor(int port1 = 3, int port2 = 2, int port3 = 1, int port4 = 2, int port5 = 1);

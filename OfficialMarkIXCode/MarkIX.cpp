@@ -6,6 +6,10 @@
 #include "TKORelay.h"
 
 class MarkIX : public SimpleRobot
+/// Main Robot Code
+/*!
+	Documented By Daniel Braginsky of Team 1351
+*/
 {
 	Joystick stick1, stick2, stick3, stick4;	
 	TKOIntake intake;
@@ -34,10 +38,16 @@ public:
 		ds = DriverStation::GetInstance();
 	}
 	
+	//! Notifies driver if robot is disabled. Prints "Robot Died!" to console if it is disabled
+	/*!
+	*/
 	void Disabled() {
-		printf("ragequit");
+		printf("Robot Died!");
 	}
 
+	//! Autonomous code
+	/*!
+	*/
 	void Autonomous(void) {
 		Timer *timer = new Timer();
 		timer->Start();
@@ -59,17 +69,19 @@ public:
 		conveyor.EndAll();
 		shooter.DecreaseSpeed(1) gg
 	}
-
+	//! Operator Control Initialize and runs the Operator Control loop
+	/*!
+		Initializes drive motors, Prints number and location of balls and shooter's speed to DSLog
+	*/
 	void OperatorControl(void) {
 		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
 		conveyor.EndAll();
-		shooter.DecreaseSpeed(250) gg
+		shooter.DecreaseSpeed(250);
 		int counter = 0;
 		float average = 0;
 		float total = 0;
 		while (IsOperatorControl()){
-			Driver();
 			Operator();
 			if (counter % 30 == 0) {
 				average = total / 30;
@@ -81,16 +93,19 @@ public:
 			DSLog(1, "Number of balls: %d", conveyor.GetNumBalls());
 			
 			counter++;
-			Wait(.005) gg
+			Wait(.005);
 		}
 	}
-	void Driver() {
+	//! Driving and EVOM code
+	/*!
+	*/
+	void Operator() {
+		//BEGIN DRIVE
 		if (stick1.GetTrigger())
 			drive.ArcadeDrive(stick1.GetY() *.654, stick2.GetX() * .654);
 		if (!stick1.GetTrigger())
 			drive.ArcadeDrive(stick1.GetY() * .877 , stick2.GetX() * .877);
-	}
-	void Operator() {
+		//BEGIN EVOM
 		if (stick3.GetRawButton(5) && !stick3.GetRawButton(3)) {
 			conveyor.OverrideAll();			// Currently uses a DSLog(2)
 		} 
@@ -103,8 +118,6 @@ public:
 		if (!stick3.GetRawButton(3) && !stick3.GetRawButton(5) && !stick3.GetRawButton(4)) {
 			conveyor.EndAll();
 		}	
-		float height = 0;
-		height = 1;
 		DSLog(2, "Setpoint: %f", shooter.GetSetpoint());
 		if (stick3.GetTrigger()){
 			intake.RollerMove(ROLLER_ON);

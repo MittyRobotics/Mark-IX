@@ -1,16 +1,33 @@
 #ifndef __DEFINITIONS_H
 #define __DEFINITIONS_H
 
+/*! \file Definitions.h
+	\brief Defines constants and macros used by the other files in the project.
+*/
 #include "WPILib.h"
 #include "Vision/RGBImage.h"
 #include "Math.h"
 
+/*!
+  \def DSClear()
+  Clears the Driver Station LCD of all text.
+*/
+/*!
+  \def DSLog(line, msg, ...)
+  Formatted printing of msg to the specified line on the Driver Station LCD.
+*/
 #define DSClear()				DriverStationLCD::GetInstance()->Clear(); \
 								DriverStationLCD::GetInstance()->UpdateLCD();
 #define DSLog(line, msg, ...)	DriverStationLCD::GetInstance()->Printf(DriverStationLCD::GetInstance()->kUser_Line##line, 1, msg, ##__VA_ARGS__); \
 								DriverStationLCD::GetInstance()->UpdateLCD();
 #define gg ;
 
+/*! \mainpage Welcome to TKO 1351's MarkIX's Code Documentation!
+ *
+ * 	This is the Robot Code for the 2012 Season of Rebound Rumble
+ *  
+ *  If you haven't already, please visit our <a href="http://www.amhsrobotics.com">website</a>.
+ */
 //Joystick ports
 
 const int STICK_1_PORT = 1;

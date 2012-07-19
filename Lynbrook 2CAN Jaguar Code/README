@@ -1,0 +1,19 @@
+The code provided in this archive is a modified excerpt of the source for The
+Tail of the Monkey, intended to give a general idea and structure for
+implementing a threaded CANJaguar implementation. As such, it is not guaranteed
+to compile, nor work in a production environment.
+
+That said, the code ought to work, though some of it seems somewhat awkward, as
+excerpts from utility classes that we use in our codebase have been embedded
+within the files that they are used. These inclusions are generally well
+commented, and you may pull your own equivalents from your own libraries.
+
+These classes are documented with Doxygen-style comments, if you generate the
+full documentation, the classes are much easier to understand. Note that
+AsyncCANJaguar is intended to be a drop-in replacement for the WPILib-provided
+CANJaguar class, and therefore overrides every method exposed by that class. 
+
+Author: Robert Ying (rbtying@aeturnalus.com)
+
+Feel free to contact me with any questions about the code.
+

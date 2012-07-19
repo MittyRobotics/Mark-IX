@@ -8,28 +8,12 @@
 
 #ifndef __TKOLOGGING_H
 #define __TKOLOGGING_H
-
-/*! \mainpage Logging CRIO Competition Page
- *
- * \section intro_sec Introduction
- *
- * Logging during matches will be helpful for fine tuning the robot and for seeing what the CRIO thinks it is doing.
- * Versus what you told it to do...
- *
- * \section install_sec Installation
- *
- * \subsection step1 Step 1: Make folder "log" in the root folder of the CRIO
- * \subsection setp2 Step 2: Create comp.txt and move it to the log folder you just created on the CRIO
- * \subsection step3 Step 3: Test it.
- * \subsection step4 Step 4: There is no step 4. Move along.
- */
-
 #include "WPILib.h"
 #include "Definitions.h"
 #include <fstream>
 
 /**
- * You know you like structs!
+ *
  * This is a struct for the logging file.
  */
 typedef struct logFile
@@ -37,6 +21,21 @@ typedef struct logFile
 	bool opened; /**< bool opened. Whether the file is open or not. */
     std::ofstream fp; /**< ofstream fp. The file. */
 }logFile;
+
+/*! Logging CRIO Competition Page
+ *
+ * Introduction
+ *
+ * Logging during matches will be helpful for fine tuning the robot and for seeing what the CRIO thinks it is doing.
+ * Versus what you told it to do...
+ *
+ * Installation
+ *
+ * Step 1: Make folder "log" in the root folder of the CRIO
+ * Step 2: Create comp.txt and move it to the log folder you just created on the CRIO
+ * Step 3: Test it.
+ * Step 4: There is no step 4. Move along.
+ */
 
 /**
  * Logging class used for Competition match logging to the CRIO.
@@ -72,4 +71,4 @@ private:
 	logFile lg;
 };
 
-#endif
+`#endif
