@@ -133,6 +133,9 @@ public:
 				shooter.IncreaseSpeed(4250 * ds->GetAnalogIn(2));
 				shooter.Shoot();
 		}
+		else if (stick4.GetRawButton(8)  {
+        
+        }
 		else {
 			shooter.DecreaseSpeed(250);
 		}

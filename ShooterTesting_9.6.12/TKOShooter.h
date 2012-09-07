@@ -17,6 +17,7 @@ public:
 	void Reset();
 	bool IsAlive();
 	void ReadVoltage();
+	void resetSetpoints();
 private:
 	CANJaguar j1, j2;
 	float setpoint, oldsetpoint, ramping;

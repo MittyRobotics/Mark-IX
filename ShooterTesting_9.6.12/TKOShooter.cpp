@@ -40,6 +40,12 @@ void TKOShooter::IncreaseSpeed(float sp) {
 	}
 }
 
+void TKOShooter::resetSetpoints()
+{
+     setpoint = 0;
+     oldsetpoint = 0;
+}
+
 void TKOShooter::DecreaseSpeed(float sp) {
 	oldsetpoint = setpoint;
 	setpoint = sp;

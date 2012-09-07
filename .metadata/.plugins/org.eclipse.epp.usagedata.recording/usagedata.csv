@@ -1,0 +1,16 @@
+what,kind,bundleId,bundleVersion,description,time
+stopped,bundle,org.eclipse.jst.jee.web,1.0.301.v201007070907,"org.eclipse.jst.jee.web",1347054717321
+stopped,bundle,org.eclipse.jst.jsf.apache.trinidad.tagsupport,1.1.200.v201104061711,"org.eclipse.jst.jsf.apache.trinidad.tagsupport",1347054717321
+stopped,bundle,org.eclipse.jst.jsf.facesconfig.ui,1.2.100.v201201111516,"org.eclipse.jst.jsf.facesconfig.ui",1347054717322
+stopped,bundle,org.eclipse.jst.jsf.facelet.ui,1.0.1.v201104032306,"org.eclipse.jst.jsf.facelet.ui",1347054717323
+stopped,bundle,org.eclipse.jst.jsf.ui,1.3.200.v201202131530,"org.eclipse.jst.jsf.ui",1347054717323
+stopped,bundle,org.eclipse.jst.pagedesigner.jsf.ui,1.2.100.v201104061711,"org.eclipse.jst.pagedesigner.jsf.ui",1347054717324
+stopped,bundle,org.eclipse.jst.pagedesigner,1.3.200.v2012030703072246,"org.eclipse.jst.pagedesigner",1347054717324
+stopped,bundle,org.eclipse.jst.jsf.common.ui,1.2.100.v201104061711,"org.eclipse.jst.jsf.common.ui",1347054717325
+stopped,bundle,org.eclipse.jst.jsf.facelet.core,1.0.200.v201205161442,"org.eclipse.jst.jsf.facelet.core",1347054717326
+stopped,bundle,org.eclipse.jst.jsf.core,1.4.0.v201205241050,"org.eclipse.jst.jsf.core",1347054717326
+stopped,bundle,org.eclipse.jst.jsf.standard.tagsupport,1.2.100.v201104061711,"org.eclipse.jst.jsf.standard.tagsupport",1347054717327
+stopped,bundle,org.eclipse.jst.pagedesigner.jsp.core,1.2.100.v201112111111,"org.eclipse.jst.pagedesigner.jsp.core",1347054717327
+stopped,bundle,org.eclipse.jst.jsf.common,1.2.3.v201104061039,"org.eclipse.jst.jsf.common",1347054717328
+stopped,bundle,org.eclipse.jst.ws.jaxrs.ui,1.0.500.v201205020140,"org.eclipse.jst.ws.jaxrs.ui",1347054717329
+stopped,bundle,org.eclipse.jst.ws.jaxrs.core,1.0.400.v201202152223,"org.eclipse.jst.ws.jaxrs.core",1347054717329
