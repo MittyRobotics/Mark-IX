@@ -87,6 +87,7 @@ public:
 			DSLog(3, "Spinner : %f", average);
 			DSLog(1, "Number of balls: %d", conveyor.GetNumBalls());
 			DSLog(5, "Loop counter:  %i", counter);
+			DSLog(6, "Shooter UpToSpeed: %i", shooter.IsUpToSpeed());
 			counter++;
 			Wait(.005);
 		}
@@ -133,8 +134,8 @@ public:
 				shooter.IncreaseSpeed(4250 * ds->GetAnalogIn(2));
 				shooter.Shoot();
 		}
-		else if (stick4.GetRawButton(8)  {
-        
+		else if (stick4.GetRawButton(8))  {
+				shooter.resetSetpoints();
         }
 		else {
 			shooter.DecreaseSpeed(250);

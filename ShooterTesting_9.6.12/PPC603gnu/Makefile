@@ -31,8 +31,8 @@ else
 MODE_DIR := NonDebug
 endif
 OBJ_DIR := .
-WS_ROOT_DIR := C:/WindRiver/workspace
-PRJ_ROOT_DIR := $(WS_ROOT_DIR)/ShooterTesting
+WS_ROOT_DIR := C:/Users/Vadim/repos/mark-ix
+PRJ_ROOT_DIR := $(WS_ROOT_DIR)/ShooterTesting_9.6.12
 
 
 
@@ -162,36 +162,36 @@ SimpleTemplate_partialImage/$(MODE_DIR)/% : LIBPATH =
 SimpleTemplate_partialImage/$(MODE_DIR)/% : LIBS = 
 SimpleTemplate_partialImage/$(MODE_DIR)/% : OBJ_DIR := SimpleTemplate_partialImage/$(MODE_DIR)
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/MarkIX.o : $(PRJ_ROOT_DIR)/MarkIX.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/MarkIX.o : $(PRJ_ROOT_DIR)/MarkIX.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKOConveyor.o : $(PRJ_ROOT_DIR)/TKOConveyor.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKOConveyor.o : $(PRJ_ROOT_DIR)/TKOConveyor.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKOIntake.o : $(PRJ_ROOT_DIR)/TKOIntake.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKOIntake.o : $(PRJ_ROOT_DIR)/TKOIntake.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKOLogging.o : $(PRJ_ROOT_DIR)/TKOLogging.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKOLogging.o : $(PRJ_ROOT_DIR)/TKOLogging.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKORelay.o : $(PRJ_ROOT_DIR)/TKORelay.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKORelay.o : $(PRJ_ROOT_DIR)/TKORelay.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKOShooter.o : $(PRJ_ROOT_DIR)/TKOShooter.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKOShooter.o : $(PRJ_ROOT_DIR)/TKOShooter.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-OBJECTS_SimpleTemplate_partialImage = SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/MarkIX.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKOConveyor.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKOIntake.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKOLogging.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKORelay.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKOShooter.o
+OBJECTS_SimpleTemplate_partialImage = SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/MarkIX.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKOConveyor.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKOIntake.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKOLogging.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKORelay.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKOShooter.o
 
 SimpleTemplate_partialImage/$(MODE_DIR)/SimpleTemplate_partialImage.o : $(OBJECTS_SimpleTemplate_partialImage)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc -r -nostdlib -Wl,-X  -o "$@" $(OBJECTS_SimpleTemplate_partialImage) $(LIBPATH) $(LIBS) $(ADDED_LIBPATH) $(ADDED_LIBS)  && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
@@ -205,8 +205,8 @@ SimpleTemplate_partialImage/$(MODE_DIR)/SimpleTemplate_partialImage_clean :
 
 force : 
 
-DEP_FILES := SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/MarkIX.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKOConveyor.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKOIntake.d \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKOLogging.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKORelay.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting/TKOShooter.d
+DEP_FILES := SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/MarkIX.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKOConveyor.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKOIntake.d \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKOLogging.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKORelay.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/ShooterTesting_9.6.12/TKOShooter.d
 -include $(DEP_FILES)
 
 
