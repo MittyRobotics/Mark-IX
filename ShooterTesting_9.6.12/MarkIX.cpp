@@ -82,11 +82,12 @@ public:
 				average = total / 30;
 				total = 0;
 				DSLog(4, "actual: %f", shooter.GetSpeed() );
+				printf("Actual: %f", shooter.GetSpeed() );
 			}
 			total += shooter.GetSpeed();
 			DSLog(3, "Spinner : %f", average);
 			DSLog(1, "Number of balls: %d", conveyor.GetNumBalls());
-			DSLog(7, "Loop counter:  %i", counter);
+			DSLog(5, "Loop counter:  %i", counter);
 			DSLog(6, "Shooter UpToSpeed: %i", shooter.IsUpToSpeed());
 			counter++;
 			Wait(.005);
