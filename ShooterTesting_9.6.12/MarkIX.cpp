@@ -86,7 +86,7 @@ public:
 			total += shooter.GetSpeed();
 			DSLog(3, "Spinner : %f", average);
 			DSLog(1, "Number of balls: %d", conveyor.GetNumBalls());
-			DSLog(5, "Loop counter:  %i", counter);
+			DSLog(7, "Loop counter:  %i", counter);
 			DSLog(6, "Shooter UpToSpeed: %i", shooter.IsUpToSpeed());
 			counter++;
 			Wait(.005);
