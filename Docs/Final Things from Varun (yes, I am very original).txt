@@ -1,0 +1,20 @@
+Hey guys,
+I'm pretty much done with Robotics at this point and have no more useful information to provide.
+lol jk there are some things I should mention:
+(1) I have an NI account connected to varunnaik12@mittymonarch.com. I'm sure you can all guess what the password is. As far as I know, there is no NI account connected to programming@amhsrobotics.com, so I need someone to log in to my account (https://lumen.ni.com/nicif/us/header_login/content.xhtml?du=http%3A//www.ni.com/), go to the "My Profile" link, and change some of the personal information. Most importantly, change the email address to programming@amhsrobotics.com, and change the phone number to something other than 408-555-5555. The rest is up to you guys.
+(2) You know those directories I added to the Dropbox called Calculations and Vision Calculations? USE THEM.
+(3) Hey Braginsky: if you ever teach programming, remember that you speak unusually fast and will probably confuse most freshmen :)
+(4) Hey Vadim: based on the above line, you should probably take care of teaching rookies (and possibly Sumedh) how to program.
+(5) Hey Pleva: you should probably help Vadim with that ^
+(6) Refer to "Final things from Tanay.txt" for other stuff you should do. Because, whether we want to admit it or not, the truth is that he knew more about Robotics programming than anyone who is currently on the team.
+(7) Vadim and Braginsky: You guys gotta do the Russian thing on the first day. Get Dina and Max and any other Russian people on the team in, if possible.
+(8) Figure out how you'll teach new programmers how to code (at the bare minimum, up to the end of "8-Classes I.txt") and how to test them...
+(9) For corn's sake, PLEASE update the Dropbox with meeting times and stuff for Pleva, as well as with documentation and all that fun stuff.
+
+CalGames is on October 12-13 at Woodside. Ordinarily, CalGames is around the same day as my birthday (October 22), but luckily that isn't the case this year, cuz if that were the case, CalGames would be on October 19-20, and, being a Cal student, I have to go to the Big Game against Stanfurd on October 20 (Go Bears!). Long story short, I will do my best to be there on October 13. No promises about coming to any meetings before then.
+I will be offline (for the most part) from July 13 to about August 5. I could come to the last 2 meetings before Mitty starts, but I am choosing not to (I'm reasonably confident that you guys can manage on your own).
+
+This document will no longer exist in the Dropbox by August 15. Same applies to "Final things from Tanay.txt".
+
+If you ever need me for anything, I'll check my varunnaik12@mittymonarch.com email at least once every day.
+Good luck.

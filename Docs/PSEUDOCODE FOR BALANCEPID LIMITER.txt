@@ -1,0 +1,22 @@
+// Code to make sure that the robot does not pull a Thomas
+
+bool onramp? = false;					// starts off ramp
+float amountDriven = 0;
+while(onRamp? == false){
+	robotMotors.set(.2);
+	if(abs(gyro.GetAngle()) > 2){		// 2 degrees
+		onRamp? = true;
+	}
+}
+while(onRamp? == true){
+	amountDriven+=5.95 * (numOfMotorRotations) /(5*pi);  //numOfMotorRotations needs to be +/-, 5.95 is gear ratio, 2.5 is radius of wheels.
+	if(amountDriven > 30 && amountDriven < 86){
+		balancePID()   //uninhibited, rock on
+	}
+	if(amountDriven < 30){
+		//Do not listen to negative motor commands, to ensure that the robot does not drive off the back end of the ramp. No idea how to do this, its on you.
+	}
+	if(amountDriven > 86){
+		//see above, except do not move forward.
+	}
+}

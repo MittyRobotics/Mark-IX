@@ -3,18 +3,32 @@ Just something I thought was funny: If you think C++ is not overly complicated, 
 Here's something else: what does 2["hello"] evaluate to?
 Answer: 'l'
 // saw this, thought it worked quite well -Light http://bash.org/?240849
+
 What did C++ say to C? "You've got no class."
 C++ might be bad, but pointers are still better than a Type class, like Java: Type collectionType = new TypeToken<Collection<Integer>>(){}.getType();
 - Varun (from https://sites.google.com/site/gson/gson-user-guide#TOC-Collections-Examples)
 
+What kind of coffee do programmers drink? The ones made with Java :D
+- khieu the facepalm
+What did people say when the new version of C came out? It's a plus
+
+If a method is made that doesn't return anything, and it has something set to be nothing... wouldn't you say it's NULL and VOID
+
 REMIND DANIEL TO FIX TKOSHOOTER.CPP'S "calculate velocity" CLASS'S DOXYGEN
 
-Summer meeting schedule (for Varun and Pleva):
-	June 25-29, 8:30-12:30 (VEX camp)
-	June 26, 27, 6:30-9:00				// Fairley has approved meetings for this week
-	July 10, 11							// 11th is the last day Varun can come
-	July 24, 25                                     // Vadim cannot come because he is at lake tahoe
-	August 14, 15                       // Matt will not be here due to jaw surgery
+/* Summer */ meeting schedule (for Varun and Pleva):
+	
+
+Off season schedule:
+	Monday, Tuesday, and Thursday meetings 3:00 - 5:00 whenever there is school.
+
+Off season projects:
+	Work on improving and testing shooter
+	Make CANJaguars more reliable
+	Test Shooter encoders through Digital Sidecar
+	Teach Freshmen
+	Add Ultrasonic Rangefinder
+	
 Summer projects:
 	Doxygen on website + commenting code
 	Shifting to bitbucket
@@ -34,4 +48,5 @@ Team 971 Scouting: mvanryswyk@gmail.com
 Some random alum who knows about Kinect: John Sphar '06 (jlsphar@gmail.com)
 Matt Pleva's email address: matthewpleva11@mittymonarch.com
 Varun Naik's email address: varunnaik12@mittymonarch.com
+Tanay Nathan's email address: tanaynathan14@gmail.com trolololo
 Lynbrook Robotics Programming Lead email: rbtying@aeturnalus.com

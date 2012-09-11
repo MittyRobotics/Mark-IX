@@ -1,0 +1,34 @@
+Recommendations from Tanay for next year:
+
+Learn Multi-tasking/ Multi-threading: http://www-kryo.desy.de/documents/vxWorks/V5.5/vxworks/guide/c-basic.html#83930
+
+When using Position PID, ask electronics to plug the encoder into the Digital Sidecar, makes tuning constants 100x easier.
+
+USE POINTERS! It's difficult in the beginning, but you need to use them eventually. My recommendation is start ASAP, and only use pointers for objects. (Exception is camera) Make sure in the destructor, you delete every pointer created and initialized.
+
+Haven't tried this method, but please attempt it: For shooter repeatability and speed, use PercentVbus mode. Make a while loop that says 
+	while (masterJag->GetSpeed() <= setpoint) {
+		masterJag->Set(i); slaveJag->Set(i);
+		i += .001;
+	}
+
+I know GetSpeed() is a continuous function, but I do not know if it can be accessed from PercentVbus mode. Initialize the Jaguars as you would a Speed Jaguar, but without the PID constants. For example:
+
+	masterJag = new CANJaguar(Port, CANJaguar::kPercentVbus);
+	slaveJag = new CANJaguar(Port2, CANJaguar::kPercentVbus);
+	masterJag->SetSpeedReference(CANJaguar::kSpeedRef_QuadEncoder); //Not sure if the Encoder is correctly called.
+	masterJag->ConfigEncTicksPerRev(250); //I forget this line
+
+TRY IT OUT.
+
+Implement the camera code we created, except in a separate thread. There is a project in the Dropbox that has Multi-threading code for driving in it, make sure you test that out.
+
+See if the Pneumatics code in the Dropbox works as planned and feel free to make changes. Yeah, that's it.
+
+See if you can get Speed PID for driving to work like the spinner code or just in general working. Get repeatbility.
+
+Fix autonomous, have it drive up to the fender and shoot. This requires much testing, I believe in you guys. Don't, and I repeat DON'T, PUT DOWN THE WRIST AND DRIVE UP TO THE FENDER TO SHOOT. You'll ruin the wrist.
+
+"Keep me in the Dropbox please, I'm more than willing to help. Also, tell everyone I'm sorry for what has happened and I have full faith in you guys to do the best you possibly can. I'll see if I will be in Calgames; if I am, I'll make sure to drop by your pit. AND ask Mr. Fairley if I can work with you guys over the summer (if it's not against school policies)." -Tanay
+
+"Constantly read the documentation and if you have any questions about ANYTHING, feel free to email me at technofreak.tanay@gmail.com and I'll be more than happy to answer your questions. My skype is also doublecheesplease, you can contact me there as well. Au revoir." -Tanay

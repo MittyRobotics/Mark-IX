@@ -1,0 +1,20 @@
+What crio are we using next year? (e.g. baby crio)
+	On the robot we should be using the same crio as always (i.e. NOT the baby crio) -Varun
+What is the processor speed and number of cores on that crio?
+	CPU speed is 400 MHz, according to "2012 vision targets white paper.pdf" page 14
+	I have no idea how many cores -Varun
+	Then there is no way we are doing multithreaded applications on that -Matt
+If multicore how many?
+	FIRST gives some built-in classes and stuff to spawn new threads, but I doubt that we can use extra cores on the crio, if any exist at all -Varun
+What version of C++ does the crio support? (e.g. c++ 11 c++ 99)
+Are we allowed to use all of the Standard Library of C++ or only WPI Lib?
+	Built-in C++ classes like string, vector, stack, queue, ostream, istream, etc. are basically unchanged, but cout and cin don't exist
+	Wind River redefines most of the functions in the C++ STL (for example, printf), but, for the most part, they're available -Varun
+Can we modify WPI Lib to use the rest of the std c++ lib if we are not allowed to use all of it?
+	I suppose we could, but it would be really complicated and unnecessary -Varun
+Do you know how to FTP into the crio and replace the program you want to run with a newer version if windriver hates you?
+(By hates I mean crashes every time you try to upload code)
+	It's been done by other teams before, but it's supposed to be really difficult... -Varun
+Can we use pthreads with the crio?
+Why am I asking all of these questions? - Matt
+	Cuz nobody bothered to ask them before lol -Varun
