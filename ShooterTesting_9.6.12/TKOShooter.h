@@ -18,6 +18,8 @@ public:
 	bool IsAlive();
 	void ReadVoltage();
 	void resetSetpoints();
+	void PrintEncoder();
+	bool IsUpToSpeed2();
 private:
 	CANJaguar j1, j2;
 	float setpoint, oldsetpoint, ramping;

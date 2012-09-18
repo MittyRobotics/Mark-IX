@@ -14,6 +14,7 @@ TKOShooter::TKOShooter(int port1, int port2):
 	j1.SetPID(SPINNER_kP, SPINNER_kI, SPINNER_kD);
 	j1.SetSpeedReference(CANJaguar::kSpeedRef_QuadEncoder);  //sets encoder to be pluged into jaguar 1
 	j1.ConfigEncoderCodesPerRev(250);
+	j1.EnableControl(j1.GetPosition()); //testing with this line
 	j1.SetSafetyEnabled(true);
 	j2.SetSafetyEnabled(j1.IsSafetyEnabled());
 	oldsetpoint = 500;
@@ -87,10 +88,16 @@ void TKOShooter::DecreaseSpeed(float sp) {
 ***************************************************/
 bool TKOShooter::IsUpToSpeed() 
 {
-	if (_ready == true && oldsetpoint == setpoint && setpoint > .25 * 4250)
+	if (_ready == true && oldsetpoint == setpoint && setpoint > .25 * 4250) 
 		return true;
 	return false;
 }
+//bool TKOShooter::IsUpToSpeed2()
+//{
+//	if (IsUpToSpeed && ( (j1.GetSpeed < (setpoint + setpoint * 0.1)) || (j1.GetSpeed() > (setpoint - setpoint * 0.1)) ))
+//		return true;
+//	return false;
+//}
 /***************************************************
 * Does what for loops do in the
 * IncreaseSpeed and DecreaseSpeed,
@@ -99,7 +106,7 @@ bool TKOShooter::IsUpToSpeed()
 void TKOShooter::Shoot(){
 	volts = j1.GetOutputVoltage() / j1.GetBusVoltage();
 	j1.Set(-setpoint);
-	j2.Set(volts);	
+	j2.Set(volts);
 }
 /***************************************************
 * Math function that calvulates velocity
@@ -131,6 +138,11 @@ void TKOShooter::Reset() {
 	j1.ConfigEncoderCodesPerRev(250);
 	j1.SetSafetyEnabled(true);
 	j2.SetSafetyEnabled(j1.IsSafetyEnabled());
+}
+
+void TKOShooter::PrintEncoder()
+{
+	printf("Encoder position : %f\r\n", j1.GetSpeed());  //and this line for testing
 }
 
 bool TKOShooter::IsAlive() {

@@ -14,7 +14,9 @@ class MarkIX : public SimpleRobot
 	TKOShooter shooter;
 	RobotDrive drive;
 	DriverStation *ds;
+	
 //    AnalogChannel sonar;
+	
 
 public:
 	MarkIX(void):
@@ -32,6 +34,8 @@ public:
 		shooter(SPINNER_1_ID, SPINNER_2_ID),
 		drive(&drive1, &drive2, &drive3, &drive4)
 //		sonar(1, 5)
+	
+		
 	{
 		ds = DriverStation::GetInstance();
 	}
@@ -59,9 +63,8 @@ public:
 			Wait(0.005);
 		}
 		conveyor.EndAll();
-		shooter.DecreaseSpeed(1) gg
+		shooter.DecreaseSpeed(1);
 	}
-
 	void OperatorControl(void) {
 		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
@@ -70,35 +73,45 @@ public:
 		int counter = 0;
 		float average = 0;
 		float total = 0;
+		
 		while (IsOperatorControl()){
 //			float sonarVoltage = sonar.GetVoltage();
 //			float sonarDistance = sonarVoltage * 100; //inches
 //			DSLog(5, "Sonar Dist. in: %f \r\n", sonarDistance);
 //			printf("Sonar Voltage: %f \r\n", sonarVoltage);
 //			printf("Sonar Distance: %f \r\n", sonarDistance);
-			Driver();
+			if (stick4.GetRawButton(7))
+				DriverTank();
+			else
+				DriverArcade();
 			Operator();
 			if (counter % 30 == 0) {
 				average = total / 30;
 				total = 0;
 				DSLog(4, "actual: %f", shooter.GetSpeed() );
-				printf("Actual: %f", shooter.GetSpeed() );
+				//printf("Actual: %f", shooter.GetSpeed() );
 			}
 			total += shooter.GetSpeed();
 			DSLog(3, "Spinner : %f", average);
 			DSLog(1, "Number of balls: %d", conveyor.GetNumBalls());
 			DSLog(5, "Loop counter:  %i", counter);
-			DSLog(6, "Shooter UpToSpeed: %i", shooter.IsUpToSpeed());
+			DSLog(6, "Shooter UpToSpeed2: %i", shooter.IsUpToSpeed2());
+			
+			shooter.PrintEncoder();
+			
 			counter++;
 			Wait(.005);
 		}
 	}
-	void Driver() {
+	void DriverArcade() {
 		if (stick1.GetTrigger())
 			drive.ArcadeDrive(stick1.GetY() *.654, stick2.GetX() * .654);
 		if (!stick1.GetTrigger())
 			drive.ArcadeDrive(stick1.GetY() * .877 , stick2.GetX() * .877);
 	}
+	void DriverTank() {
+		drive.TankDrive(stick1.GetY() * .877 , stick2.GetY() * .877);
+		}
 	void Operator() {
 		if (stick3.GetRawButton(5) && !stick3.GetRawButton(3)) {
 			conveyor.OverrideAll();			// Currently uses a DSLog(2)
@@ -138,12 +151,19 @@ public:
 		else if (stick4.GetRawButton(8))  {
 				shooter.resetSetpoints();
         }
+		
 		else {
 			shooter.DecreaseSpeed(250);
 		}
 		if (stick4.GetTrigger()){
 			shooter.DecreaseSpeed(250);
 		}
+		while  (stick4.GetRawButton(2))
+		{
+			DSLog(1, "Pausing...")
+			printf("Pausing...");
+		}
+		
 	}
 };
 
