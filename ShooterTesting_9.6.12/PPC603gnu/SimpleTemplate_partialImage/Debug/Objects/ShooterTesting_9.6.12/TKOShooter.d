@@ -1,8 +1,8 @@
  \
  SimpleTemplate_partialImage/Debug/Objects/ShooterTesting_9.6.12/TKOShooter.o:  \
- C:/Users/Vadim/repos/mark-ix/ShooterTesting_9.6.12/TKOShooter.cpp \
-  C:/Users/Vadim/repos/mark-ix/ShooterTesting_9.6.12/TKOShooter.h \
-  C:/Users/Vadim/repos/mark-ix/ShooterTesting_9.6.12/Definitions.h \
+ C:/Users/Andrew/repos/mark-ix/ShooterTesting_9.6.12/TKOShooter.cpp \
+  C:/Users/Andrew/repos/mark-ix/ShooterTesting_9.6.12/TKOShooter.h \
+  C:/Users/Andrew/repos/mark-ix/ShooterTesting_9.6.12/Definitions.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/vxworks-6.3/target/h/string.h \
   C:/WindRiver/vxworks-6.3/target/h/types/vxANSI.h \
@@ -321,9 +321,9 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/RGBImage.h \
   C:/WindRiver/vxworks-6.3/target/h/Math.h
 
-C:/Users/Vadim/repos/mark-ix/ShooterTesting_9.6.12/TKOShooter.h:
+C:/Users/Andrew/repos/mark-ix/ShooterTesting_9.6.12/TKOShooter.h:
 
-C:/Users/Vadim/repos/mark-ix/ShooterTesting_9.6.12/Definitions.h:
+C:/Users/Andrew/repos/mark-ix/ShooterTesting_9.6.12/Definitions.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 

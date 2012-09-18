@@ -15,7 +15,7 @@ class MarkIX : public SimpleRobot
 	RobotDrive drive;
 	DriverStation *ds;
 	
-//    AnalogChannel sonar;
+    AnalogChannel sonar;
 	
 
 public:
@@ -32,8 +32,8 @@ public:
 		drive4(DRIVE_R2_ID),
 		turret(TURRET_ID),
 		shooter(SPINNER_1_ID, SPINNER_2_ID),
-		drive(&drive1, &drive2, &drive3, &drive4)
-//		sonar(1, 5)
+		drive(&drive1, &drive2, &drive3, &drive4),
+		sonar(1, 5)
 	
 		
 	{
@@ -58,10 +58,14 @@ public:
 				conveyor.EndAll();
 			if ((int) timer->Get() % 50 == 0)
 				shooter.Reset();
+			
+			drive.TankDrive(0.2, 0.2);
+			
 			if (!IsAutonomous())
 				break;
 			Wait(0.005);
 		}
+		drive.StopMotor();
 		conveyor.EndAll();
 		shooter.DecreaseSpeed(1);
 	}
@@ -69,17 +73,17 @@ public:
 		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
 		conveyor.EndAll();
-		shooter.DecreaseSpeed(250) gg
+		shooter.DecreaseSpeed(250);
 		int counter = 0;
 		float average = 0;
 		float total = 0;
 		
 		while (IsOperatorControl()){
-//			float sonarVoltage = sonar.GetVoltage();
-//			float sonarDistance = sonarVoltage * 100; //inches
-//			DSLog(5, "Sonar Dist. in: %f \r\n", sonarDistance);
-//			printf("Sonar Voltage: %f \r\n", sonarVoltage);
-//			printf("Sonar Distance: %f \r\n", sonarDistance);
+			float sonarVoltage = sonar.GetVoltage();
+			float sonarDistance = sonarVoltage * 100; //inches
+			DSLog(5, "Sonar Dist. in: %f \r\n", sonarDistance);
+			printf("Sonar Voltage: %f \r\n", sonarVoltage);
+			printf("Sonar Distance: %f \r\n", sonarDistance);
 			if (stick4.GetRawButton(7))
 				DriverTank();
 			else
@@ -94,7 +98,7 @@ public:
 			total += shooter.GetSpeed();
 			DSLog(3, "Spinner : %f", average);
 			DSLog(1, "Number of balls: %d", conveyor.GetNumBalls());
-			DSLog(5, "Loop counter:  %i", counter);
+//			DSLog(5, "Loop counter:  %i", counter);
 			DSLog(6, "Shooter UpToSpeed2: %i", shooter.IsUpToSpeed2());
 			
 			shooter.PrintEncoder();
