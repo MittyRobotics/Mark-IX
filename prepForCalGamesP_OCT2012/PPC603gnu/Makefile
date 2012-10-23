@@ -31,7 +31,7 @@ else
 MODE_DIR := NonDebug
 endif
 OBJ_DIR := .
-WS_ROOT_DIR := C:/Users/Vadim/repos/mark-ix
+WS_ROOT_DIR := C:/Users/Andrew/repos/mark-ix
 PRJ_ROOT_DIR := $(WS_ROOT_DIR)/prepForCalGamesP_OCT2012
 
 

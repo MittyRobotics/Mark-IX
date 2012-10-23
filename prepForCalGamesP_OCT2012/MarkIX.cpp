@@ -43,6 +43,7 @@ public:
 		drive1.SetSpeedReference(CANJaguar::kSpeedRef_QuadEncoder);
 		drive1.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
 		drive1.ConfigEncoderCodesPerRev(250);
+//		drive1.SetPID(30, 0, .1);
 		drive1.SetSafetyEnabled(true);
 		ds = DriverStation::GetInstance();
 	}
@@ -67,6 +68,7 @@ public:
 		conveyor.EndAll();
 		shooter.DecreaseSpeed(250);
 		Timer *timer = new Timer();
+		drive1.ChangeControlMode(CANJaguar::kPosition);
 		timer->Start();
 		while(timer->Get() < 15){
 			if (timer->Get() > ds->GetAnalogIn(1) && timer->Get() < 5) {
@@ -84,6 +86,9 @@ public:
 			if (timer->Get() >= 5)
 			{
 				drive1.Set(2*METERREVS);
+				drive2.Set(-drive1.GetOutputVoltage()); //voltage
+				drive3.Set(-drive1.GetOutputVoltage());
+				drive4.Set(drive1.GetOutputVoltage());
 				//drive2.Set(2*METERREVS);
 				//drive3.Set(2*METERREVS);
 				//drive4.Set(2*METERREVS);
@@ -112,6 +117,7 @@ public:
 //		drive1.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
 //		drive1.ConfigEncoderCodesPerRev(250);
 //		drive1.SetSafetyEnabled(true);
+		drive1.ChangeControlMode(CANJaguar::kSpeed);
 		conveyor.EndAll();
 		shooter.DecreaseSpeed(250);
 		int counter = 0;
