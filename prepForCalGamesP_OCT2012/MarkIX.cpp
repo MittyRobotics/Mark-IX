@@ -38,6 +38,7 @@ public:
 		drive(&drive1, &drive2, &drive3, &drive4),
 		sonar(1, 8)
 	{
+		//drive1.SetPID(30, 0, .1);
 		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
 		drive1.SetSpeedReference(CANJaguar::kSpeedRef_QuadEncoder);
@@ -65,13 +66,24 @@ public:
 //		drive1.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
 //		drive1.ConfigEncoderCodesPerRev(250);
 //		drive1.SetSafetyEnabled(true);
+//		drive1.EnableControl(0);
+		drive1.ChangeControlMode(CANJaguar::kPosition);
+		drive2.ChangeControlMode(CANJaguar::kVoltage);
+//		drive1.ConfigMaxOutputVoltage(k_driveMaxOutputVoltage);
+		drive1.SetPID(30, 0, .1);											//TODO: think i solved the stupid autonomous problem, need to initialize again in position mode, need to test this theory
+		drive1.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+		drive1.ConfigEncoderCodesPerRev(250);
+		drive1.ConfigNeutralMode(CANJaguar::kNeutralMode_Brake);
+		drive1.EnableControl();
+		drive2.ConfigNeutralMode(CANJaguar::kNeutralMode_Brake);
+		drive2.EnableControl();
 		conveyor.EndAll();
 		shooter.DecreaseSpeed(250);
 		Timer *timer = new Timer();
-		drive1.ChangeControlMode(CANJaguar::kPosition);
+//		drive1.ChangeControlMode(CANJaguar::kPosition);
 		timer->Start();
 		while(timer->Get() < 15){
-			if (timer->Get() > ds->GetAnalogIn(1) && timer->Get() < 5) {
+			/*if (timer->Get() > ds->GetAnalogIn(1) && timer->Get() < 5) {
 				shooter.IncreaseSpeed(4250 * ds->GetAnalogIn(2));
 				shooter.Shoot();
 			}
@@ -82,16 +94,17 @@ public:
 //			if (timer->Get() >= 7 && timer->Get() < 8)
 //				drive.TankDrive(0.7, 0.7);
 //			if (timer->Get() >= 9 && timer->Get() < 10)
-//				drive.TankDrive(0.8, -0.8);
-			if (timer->Get() >= 5)
+//				drive.TankDrive(0.8, -0.8);*/
+			if (timer->Get() >= 1)
 			{
-				drive1.Set(2*METERREVS);
-				drive2.Set(-drive1.GetOutputVoltage()); //voltage
-				drive3.Set(-drive1.GetOutputVoltage());
-				drive4.Set(drive1.GetOutputVoltage());
-				//drive2.Set(2*METERREVS);
-				//drive3.Set(2*METERREVS);
-				//drive4.Set(2*METERREVS);
+//				drive1.EnableControl();
+				drive1.Set(100000);
+				drive2.Set(-drive1.GetOutputVoltage() / drive1.GetBusVoltage()); //voltage
+				//drive3.Set(-drive1.GetOutputVoltage() / drive1.GetBusVoltage());
+				//drive4.Set(drive1.GetOutputVoltage() / drive1.GetBusVoltage());
+//				drive2.Set(2*METERREVS);
+//				drive3.Set(2*METERREVS);
+//				drive4.Set(2*METERREVS);
 			}
 			
 			if ((int) timer->Get() % 50 == 0)
@@ -111,13 +124,13 @@ public:
 		Initializes drive motors, Prints number and location of balls and shooter's speed to DSLog
 	*/
 	void OperatorControl(void) {
-//		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
-//		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
+		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
+		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
 //		drive1.SetSpeedReference(CANJaguar::kSpeedRef_QuadEncoder);
 //		drive1.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
 //		drive1.ConfigEncoderCodesPerRev(250);
 //		drive1.SetSafetyEnabled(true);
-		drive1.ChangeControlMode(CANJaguar::kSpeed);
+//		drive1.ChangeControlMode(CANJaguar::kSpeed);
 		conveyor.EndAll();
 		shooter.DecreaseSpeed(250);
 		int counter = 0;
