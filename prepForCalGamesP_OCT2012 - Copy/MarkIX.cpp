@@ -54,7 +54,6 @@ public:
 	void Autonomous(void) {
 		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
-		drive1.SetSpeedReference(CANJaguar::kSpeedRef_QuadEncoder);
 		drive1.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
 		drive1.ConfigEncoderCodesPerRev(250);
 		drive1.SetSafetyEnabled(true);
