@@ -4,6 +4,7 @@
 #include "TKOConveyor.h"
 #include "TKOIntake.h"
 #include "TKORelay.h"
+#include "Task.h"
 
 class MarkIX : public SimpleRobot
 /// Main Robot Code
@@ -20,6 +21,8 @@ class MarkIX : public SimpleRobot
 	DriverStation *ds;
 	AnalogChannel sonar;
 	bool usingTank;
+	
+	
 
 public:
 	MarkIX(void):
@@ -37,6 +40,7 @@ public:
 		shooter(SPINNER_1_ID, SPINNER_2_ID),
 		drive(&drive1, &drive2, &drive3, &drive4),
 		sonar(1, 8)
+	
 	{
 		//drive1.SetPID(30, 0, .1);
 		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
@@ -47,6 +51,14 @@ public:
 //		drive1.SetPID(30, 0, .1);
 		drive1.SetSafetyEnabled(true);
 		ds = DriverStation::GetInstance();
+		Task disabled_task("Disabled", Disabled);
+		Task auton_task("Autonomous", Autonomous);
+		Task op_control("Op_Control", OperatorControl);
+		Task tank_dr("Tank_Drive", tankDrive);
+		Task arcade_dr("Arcade Drive", arcadeDrive);
+		Task oper("Operator", Operator);
+		Task TKO_Tasks[6] = { disabled_task, auton_task, op_control, tank_dr, arcade_dr, open };
+		
 	}
 	
 	//! Notifies driver if robot is disabled. Prints "Robot Died!" to console if it is disabled
@@ -262,5 +274,10 @@ public:
 	}
 };
 
-START_ROBOT_CLASS(MarkIX);
+//START_ROBOT_CLASS(MarkIX);
+for ( int i = 0 ; i < 6 ; i++ )
+{
+	TKO_Tasks[i].Start();
+}
+}
 

@@ -7,6 +7,7 @@
 #include "WPILib.h"
 #include "Vision/RGBImage.h"
 #include "Math.h"
+#include "Task.h"
 
 /*!
   \def DSClear()
