@@ -1,0 +1,142 @@
+\hypertarget{class_t_k_o_conveyor}{\section{T\-K\-O\-Conveyor Class Reference}
+\label{class_t_k_o_conveyor}\index{T\-K\-O\-Conveyor@{T\-K\-O\-Conveyor}}
+}
+
+
+Code for the Conveyor.  
+
+
+
+
+{\ttfamily \#include $<$T\-K\-O\-Conveyor.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_t_k_o_conveyor_a68d6a4bdf4c7f640da4977366c2e6add}{T\-K\-O\-Conveyor} (int port1=3, int port2=2, int port3=1, int port4=2, int port5=1)
+\begin{DoxyCompactList}\small\item\em Constructor for the \hyperlink{class_t_k_o_conveyor}{T\-K\-O\-Conveyor} class. \end{DoxyCompactList}\item 
+\hypertarget{class_t_k_o_conveyor_a869440830ff95697005f839227d198eb}{\hyperlink{class_t_k_o_conveyor_a869440830ff95697005f839227d198eb}{$\sim$\-T\-K\-O\-Conveyor} ()}\label{class_t_k_o_conveyor_a869440830ff95697005f839227d198eb}
+
+\begin{DoxyCompactList}\small\item\em Destructor for the \hyperlink{class_t_k_o_conveyor}{T\-K\-O\-Conveyor} class. \end{DoxyCompactList}\item 
+void \hyperlink{class_t_k_o_conveyor_ac46547907a0ff74117d63e134d1c5985}{Run} (bool can\-Shoot)
+\begin{DoxyCompactList}\small\item\em Runs the Conveyor using the State Machine and Switches. \end{DoxyCompactList}\item 
+void \hyperlink{class_t_k_o_conveyor_aabaebf6851e31ec3c258534441aeb814}{Override\-All} ()
+\begin{DoxyCompactList}\small\item\em Overrides the State Machine and allows the E\-V\-O\-M driver to move the conveyor up manually. \end{DoxyCompactList}\item 
+bool \hyperlink{class_t_k_o_conveyor_ab998b5ba247e2dc337f01840cc6ade2f}{Can\-Enable\-Intake} ()
+\begin{DoxyCompactList}\small\item\em Checks if robot is allowed to pick up balls. \end{DoxyCompactList}\item 
+\hypertarget{class_t_k_o_conveyor_adf4e54d355bc30f1da5a822cdecece12}{void \hyperlink{class_t_k_o_conveyor_adf4e54d355bc30f1da5a822cdecece12}{End\-All} ()}\label{class_t_k_o_conveyor_adf4e54d355bc30f1da5a822cdecece12}
+
+\begin{DoxyCompactList}\small\item\em Stops all conveyors. \end{DoxyCompactList}\item 
+void \hyperlink{class_t_k_o_conveyor_a7ed68e1b021a999dda718f02ea28c7ef}{Reverse} ()
+\begin{DoxyCompactList}\small\item\em Reverse all conveyors. \end{DoxyCompactList}\item 
+int \hyperlink{class_t_k_o_conveyor_a8d06cb72e39a9f8da636f0556b4ffd90}{Get\-Num\-Balls} ()
+\begin{DoxyCompactList}\small\item\em Get the amount of balls stored in the robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Code for the Conveyor. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_t_k_o_conveyor_a68d6a4bdf4c7f640da4977366c2e6add}{\index{T\-K\-O\-Conveyor@{T\-K\-O\-Conveyor}!T\-K\-O\-Conveyor@{T\-K\-O\-Conveyor}}
+\index{T\-K\-O\-Conveyor@{T\-K\-O\-Conveyor}!TKOConveyor@{T\-K\-O\-Conveyor}}
+\subsubsection[{T\-K\-O\-Conveyor}]{\setlength{\rightskip}{0pt plus 5cm}T\-K\-O\-Conveyor\-::\-T\-K\-O\-Conveyor (
+\begin{DoxyParamCaption}
+\item[{int}]{port1 = {\ttfamily 3}, }
+\item[{int}]{port2 = {\ttfamily 2}, }
+\item[{int}]{port3 = {\ttfamily 1}, }
+\item[{int}]{port4 = {\ttfamily 2}, }
+\item[{int}]{port5 = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_conveyor_a68d6a4bdf4c7f640da4977366c2e6add}
+
+
+Constructor for the \hyperlink{class_t_k_o_conveyor}{T\-K\-O\-Conveyor} class. 
+
+Initializes the 3 switches for the state machine and the 2 conveyor jaguars. 
+\begin{DoxyParams}{Parameters}
+{\em int} & port1 -\/ I\-D for switch1 \\
+\hline
+{\em int} & port2 -\/ I\-D for switch2 \\
+\hline
+{\em int} & port3 -\/ I\-D for switch3 \\
+\hline
+{\em int} & port4 -\/ I\-D for upper conveyor's Jaguar \\
+\hline
+{\em int} & port5 -\/ I\-D for upper conveyor's Jaguar \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_t_k_o_conveyor_ab998b5ba247e2dc337f01840cc6ade2f}{\index{T\-K\-O\-Conveyor@{T\-K\-O\-Conveyor}!Can\-Enable\-Intake@{Can\-Enable\-Intake}}
+\index{Can\-Enable\-Intake@{Can\-Enable\-Intake}!TKOConveyor@{T\-K\-O\-Conveyor}}
+\subsubsection[{Can\-Enable\-Intake}]{\setlength{\rightskip}{0pt plus 5cm}bool T\-K\-O\-Conveyor\-::\-Can\-Enable\-Intake (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_conveyor_ab998b5ba247e2dc337f01840cc6ade2f}
+
+
+Checks if robot is allowed to pick up balls. 
+
+Will only return true if number of balls is less than 3 \begin{DoxyReturn}{Returns}
+bool -\/ true if amount of balls stored is less than 3, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{class_t_k_o_conveyor_a8d06cb72e39a9f8da636f0556b4ffd90}{\index{T\-K\-O\-Conveyor@{T\-K\-O\-Conveyor}!Get\-Num\-Balls@{Get\-Num\-Balls}}
+\index{Get\-Num\-Balls@{Get\-Num\-Balls}!TKOConveyor@{T\-K\-O\-Conveyor}}
+\subsubsection[{Get\-Num\-Balls}]{\setlength{\rightskip}{0pt plus 5cm}int T\-K\-O\-Conveyor\-::\-Get\-Num\-Balls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_conveyor_a8d06cb72e39a9f8da636f0556b4ffd90}
+
+
+Get the amount of balls stored in the robot. 
+
+\begin{DoxyReturn}{Returns}
+int -\/ the number of balls stored 
+\end{DoxyReturn}
+\hypertarget{class_t_k_o_conveyor_aabaebf6851e31ec3c258534441aeb814}{\index{T\-K\-O\-Conveyor@{T\-K\-O\-Conveyor}!Override\-All@{Override\-All}}
+\index{Override\-All@{Override\-All}!TKOConveyor@{T\-K\-O\-Conveyor}}
+\subsubsection[{Override\-All}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Conveyor\-::\-Override\-All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_conveyor_aabaebf6851e31ec3c258534441aeb814}
+
+
+Overrides the State Machine and allows the E\-V\-O\-M driver to move the conveyor up manually. 
+
+Moves conveyor up and continues to keep track of the number of balls stored, in case of a foul (more than 3 balls) \hypertarget{class_t_k_o_conveyor_a7ed68e1b021a999dda718f02ea28c7ef}{\index{T\-K\-O\-Conveyor@{T\-K\-O\-Conveyor}!Reverse@{Reverse}}
+\index{Reverse@{Reverse}!TKOConveyor@{T\-K\-O\-Conveyor}}
+\subsubsection[{Reverse}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Conveyor\-::\-Reverse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_conveyor_a7ed68e1b021a999dda718f02ea28c7ef}
+
+
+Reverse all conveyors. 
+
+Moves the conveyor system in reverse, and continues to keep track of the number of balls \hypertarget{class_t_k_o_conveyor_ac46547907a0ff74117d63e134d1c5985}{\index{T\-K\-O\-Conveyor@{T\-K\-O\-Conveyor}!Run@{Run}}
+\index{Run@{Run}!TKOConveyor@{T\-K\-O\-Conveyor}}
+\subsubsection[{Run}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Conveyor\-::\-Run (
+\begin{DoxyParamCaption}
+\item[{bool}]{can\-Shoot}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_conveyor_ac46547907a0ff74117d63e134d1c5985}
+
+
+Runs the Conveyor using the State Machine and Switches. 
+
+Picks up and holds balls in correct place based on state machine, which runs off of inputs from the switches that detect location of the balls. 
+\begin{DoxyParams}{Parameters}
+{\em bool} & can\-Shoot -\/ Checks if the robot can shoot a ball \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+T\-K\-O\-Conveyor.\-h\item 
+T\-K\-O\-Conveyor.\-cpp\end{DoxyCompactItemize}
