@@ -1,3 +1,5 @@
+//Last Edited by Vadim Korolik
+//on 11/05/2012
 #include "TKOShooter.h"
 
 ///Constructor for the TKOShooter class
@@ -68,7 +70,7 @@ float TKOShooter::AverageSpeed()
 {
 	averagevalues.push_back(j1.GetSpeed());
 	float avg = 0;
-	for (int i = 0; i < averagevalues.size(); i++)
+	for (unsigned int i = 0; i < averagevalues.size(); i++)
 	{
 		avg += averagevalues.at(i);
 	}
@@ -77,7 +79,7 @@ float TKOShooter::AverageSpeed()
 }
 void TKOShooter::ClearAverage()
 {
-	for (int i = 0; i < averagevalues.size(); i++)
+	for (unsigned int i = 0; i < averagevalues.size(); i++)
 	{
 		averagevalues.pop_back();
 	}

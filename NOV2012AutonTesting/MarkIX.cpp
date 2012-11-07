@@ -1,5 +1,5 @@
 //Last edited by Vadim Korolik
-//on 11/01/2012
+//on 11/06/2012
 #include "WPILib.h"
 #include "Definitions.h"
 #include "TKOShooter.h"
@@ -17,10 +17,10 @@ class MarkIX: public SimpleRobot
 	Joystick stick1, stick2, stick3, stick4;
 	TKOIntake intake;
 	TKOConveyor conveyor;
-	TKOAutonomous auton;
 	CANJaguar drive1, drive2, drive3, drive4, turret;
 	TKOShooter shooter;
 	RobotDrive drive;
+	TKOAutonomous auton;
 	DriverStation *ds;
 	AnalogChannel sonar;
 	bool usingTank;
@@ -53,6 +53,7 @@ public:
 	void Disabled()
 	{
 		printf("Robot Died!");
+		auton.stopAutonomous();
 	}
 
 	//! Autonomous code
@@ -60,28 +61,39 @@ public:
 	 */
 	void Autonomous(void)
 	{
+		auton.initAutonomous();
+		auton.setDrivePID(50, 0.05, 0.01);
+		auton.setDriveTarget(50);
+		auton.startAutonomous();
+		
+		while (auton.autonTimer.Get() < 15 && auton.runningAuton)
+			{
+				auton.autonomousCode();
+				if (!auton.runningAuton)
+					auton.stopAutonomous();
+				Wait(0.005);
+			}
+		
 		
 	}
+	
 	//! Operator Control Initialize and runs the Operator Control loop
 	/*!
 	 Initializes drive motors, Prints number and location of balls and shooter's speed to DSLog
 	 */
+	
 	void OperatorControl(void)
 	{
 		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
-		//		drive1.SetSpeedReference(CANJaguar::kSpeedRef_QuadEncoder);
-		//		drive1.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
-		//		drive1.ConfigEncoderCodesPerRev(250);
-		//		drive1.SetSafetyEnabled(true);
-		//		drive1.ChangeControlMode(CANJaguar::kSpeed);
+		drive1.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+		drive1.ConfigEncoderCodesPerRev(250);
+		drive1.SetSafetyEnabled(true);
 		conveyor.EndAll();
 		shooter.DecreaseSpeed(250);
 		int counter = 0;
 		float average = 0;
 		float total = 0;
-		float sonarVoltage = 0;
-		float sonarDistance = 0;
 		float loopStartTime = 0;
 		float loopEndTime = 0;
 		float loopDuration = 0;
@@ -101,8 +113,6 @@ public:
 			DSLog(5, "Position: %f ", drive1.GetPosition());
 			DSLog(6, "LoopDuration: %f", loopDuration);
 			ticks += drive1.GetSpeed() / 60 / loopDuration; // if not set second to *
-			//			printf("Sonar Voltage: %f \r\n", sonarVoltage);
-			//			printf("Sonar Distance: %f \r\n", sonarDistance);
 			printf("Spinner Jag 1: %f \r\n", shooter.GetJag1Speed());
 			printf("Spinner Jag 2: %f \r\n", shooter.GetJag2Speed());
 			Operator();
@@ -110,13 +120,12 @@ public:
 			{
 				average = total / 30;
 				total = 0;
-				DSLog(4, "actual: %f", shooter.GetSpeed() );
-				//				sonarVoltage = sonar.GetVoltage();
-				//				sonarDistance = sonarVoltage * 100; //inches
+				DSLog(4, "Actual: %f", shooter.GetSpeed() );
 			}
 			total += shooter.GetSpeed();
 			DSLog(3, "Spinner : %f", average);
 			DSLog(1, "Number of balls: %d", conveyor.GetNumBalls());
+			DSLog(2, "Setpoint: %f", shooter.GetSetpoint());
 
 			counter++;
 			Wait(.005);
@@ -172,7 +181,6 @@ public:
 		{
 			conveyor.OverrideAll();
 		}
-		DSLog(2, "Setpoint: %f", shooter.GetSetpoint());
 		if (stick3.GetTrigger())
 		{
 			intake.RollerMove(ROLLER_ON);
