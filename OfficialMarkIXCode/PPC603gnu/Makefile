@@ -31,8 +31,8 @@ else
 MODE_DIR := NonDebug
 endif
 OBJ_DIR := .
-WS_ROOT_DIR := C:/WindRiver/workspace
-PRJ_ROOT_DIR := $(WS_ROOT_DIR)/FudginWithTanay
+WS_ROOT_DIR := F:/Robotics/repos
+PRJ_ROOT_DIR := $(WS_ROOT_DIR)/OfficialMarkIXCode
 
 
 
@@ -162,36 +162,36 @@ SimpleTemplate_partialImage/$(MODE_DIR)/% : LIBPATH =
 SimpleTemplate_partialImage/$(MODE_DIR)/% : LIBS = 
 SimpleTemplate_partialImage/$(MODE_DIR)/% : OBJ_DIR := SimpleTemplate_partialImage/$(MODE_DIR)
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/MarkIX.o : $(PRJ_ROOT_DIR)/MarkIX.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/MarkIX.o : $(PRJ_ROOT_DIR)/MarkIX.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKOConveyor.o : $(PRJ_ROOT_DIR)/TKOConveyor.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKOConveyor.o : $(PRJ_ROOT_DIR)/TKOConveyor.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKOIntake.o : $(PRJ_ROOT_DIR)/TKOIntake.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKOIntake.o : $(PRJ_ROOT_DIR)/TKOIntake.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKOLogging.o : $(PRJ_ROOT_DIR)/TKOLogging.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKOLogging.o : $(PRJ_ROOT_DIR)/TKOLogging.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKORelay.o : $(PRJ_ROOT_DIR)/TKORelay.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKORelay.o : $(PRJ_ROOT_DIR)/TKORelay.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKOShooter.o : $(PRJ_ROOT_DIR)/TKOShooter.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKOShooter.o : $(PRJ_ROOT_DIR)/TKOShooter.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-OBJECTS_SimpleTemplate_partialImage = SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/MarkIX.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKOConveyor.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKOIntake.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKOLogging.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKORelay.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKOShooter.o
+OBJECTS_SimpleTemplate_partialImage = SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/MarkIX.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKOConveyor.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKOIntake.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKOLogging.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKORelay.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKOShooter.o
 
 SimpleTemplate_partialImage/$(MODE_DIR)/SimpleTemplate_partialImage.o : $(OBJECTS_SimpleTemplate_partialImage)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc -r -nostdlib -Wl,-X  -o "$@" $(OBJECTS_SimpleTemplate_partialImage) $(LIBPATH) $(LIBS) $(ADDED_LIBPATH) $(ADDED_LIBS)  && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
@@ -205,8 +205,8 @@ SimpleTemplate_partialImage/$(MODE_DIR)/SimpleTemplate_partialImage_clean :
 
 force : 
 
-DEP_FILES := SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/MarkIX.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKOConveyor.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKOIntake.d \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKOLogging.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKORelay.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/FudginWithTanay/TKOShooter.d
+DEP_FILES := SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/MarkIX.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKOConveyor.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKOIntake.d \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKOLogging.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKORelay.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/OfficialMarkIXCode/TKOShooter.d
 -include $(DEP_FILES)
 
 

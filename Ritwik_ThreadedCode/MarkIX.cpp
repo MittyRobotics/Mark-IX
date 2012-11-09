@@ -21,5 +21,4 @@ class MarkIX : public SimpleRobot
 	DriverStation *ds;
 	AnalogChannel sonar;
 	bool usingTank;
-
 }

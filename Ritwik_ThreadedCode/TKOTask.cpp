@@ -1,3 +1,4 @@
+# include <Definitions.h>
 # include <Task.h>
 
 void auton ();
@@ -6,15 +7,26 @@ void shooter();
 
 int main ()
 {
-    int num_tasks = 3;
-    int test[3] = {1,2,3};
-   Task TKOBot[num_tasks] = {autonomous("Autonomous", auton)/*
-    */, teleoperated ("Teleoperated", teleop) , shooter_control ("Shooter", shooter)};
+       Task drive_task("Drive", drive);
+       drive.Start();
+    
+    
+    
+    /* Don't pay attention to this
+     * int num_tasks = 3;
+     * Task TKOBot[num_tasks] = {autonomous("Autonomous", auton) \
+    , teleoperated ("Teleoperated", teleop) , shooter_control ("Shooter", shooter)};
     for ( int i = 0 ; i < num_tasks; i++ )
     {
         TKOBot[i].Start();
     }
+     */
 
+}
+
+void drive ()
+{
+	printf( "Drive code goes here. ");
 }
 
 void teleop ()
