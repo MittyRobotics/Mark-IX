@@ -40,10 +40,6 @@ public:
 	{
 		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
-		drive1.SetSpeedReference(CANJaguar::kSpeedRef_QuadEncoder);
-		drive1.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
-		drive1.ConfigEncoderCodesPerRev(250);
-		drive1.SetSafetyEnabled(true);
 		ds = DriverStation::GetInstance();
 	}
 
@@ -53,7 +49,6 @@ public:
 	void Disabled()
 	{
 		printf("Robot Died!");
-		auton.stopAutonomous();
 	}
 
 	//! Autonomous code
@@ -62,33 +57,33 @@ public:
 	void Autonomous(void)
 	{
 		auton.initAutonomous();
-		auton.setDrivePID(50, 0.05, 0.01);
-		auton.setDriveTarget(50);
+		auton.setDrivePID(50, 0.05, .01);
+		auton.setDriveTargetStraight(REVS_PER_METER);
 		auton.startAutonomous();
-		
+
 		while (auton.autonTimer.Get() < 15 && auton.runningAuton)
-			{
-				auton.autonomousCode();
-				if (!auton.runningAuton)
-					auton.stopAutonomous();
-				Wait(0.005);
-			}
-		
-		
+		{
+			if (!ds->IsAutonomous())
+				auton.stopAutonomous(&shooter, &conveyor);
+			auton.autonomousCode(&shooter,&conveyor);
+			Wait(0.005);
+		}
+		auton.stopAutonomous(&shooter, &conveyor);
+
 	}
+
+	
+	
 	
 	//! Operator Control Initialize and runs the Operator Control loop
 	/*!
 	 Initializes drive motors, Prints number and location of balls and shooter's speed to DSLog
 	 */
-	
+
 	void OperatorControl(void)
 	{
 		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
-		drive1.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
-		drive1.ConfigEncoderCodesPerRev(250);
-		drive1.SetSafetyEnabled(true);
 		conveyor.EndAll();
 		shooter.DecreaseSpeed(250);
 		int counter = 0;
@@ -97,7 +92,6 @@ public:
 		float loopStartTime = 0;
 		float loopEndTime = 0;
 		float loopDuration = 0;
-		float ticks = 0;
 		Timer *timer = new Timer();
 		bool timerStarted = false;
 		usingTank = true;
@@ -110,9 +104,8 @@ public:
 			}
 			else
 				loopStartTime = timer->Get();
-			DSLog(5, "Position: %f ", drive1.GetPosition());
+			DSLog(5, "Position: %f ", auton.getPosition(1));
 			DSLog(6, "LoopDuration: %f", loopDuration);
-			ticks += drive1.GetSpeed() / 60 / loopDuration; // if not set second to *
 			printf("Spinner Jag 1: %f \r\n", shooter.GetJag1Speed());
 			printf("Spinner Jag 2: %f \r\n", shooter.GetJag2Speed());
 			Operator();

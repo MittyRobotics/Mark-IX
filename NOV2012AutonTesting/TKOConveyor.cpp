@@ -93,7 +93,7 @@ void TKOConveyor::Run(bool canShoot) {
 */
 
 void TKOConveyor::OverrideAll() {
-	DSLog(2, "%d %d %d", _switch1.Get(), _switch2.Get(), _switch3.Get());
+	//DSLog(2, "%d %d %d", _switch1.Get(), _switch2.Get(), _switch3.Get());
 	_upper.SetOn(2);
 	_lower.SetOn(1);
 	while (_balls.size() > 0)

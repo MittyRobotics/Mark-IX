@@ -74,7 +74,7 @@ const float TOP_FENDER = 0.585;
 const float SPINNER_kP = 0.2;		//working P: 0.20, working I: .0034
 const float SPINNER_kI = 0.004;
 const float SPINNER_kD = 0.0;
-const float METERREVS = 2.5;
+const float REVS_PER_METER = 2.51;
 
 //Hoop heights
 const float HOOP_BOT = 23; 
