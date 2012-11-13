@@ -1,0 +1,176 @@
+\hypertarget{class_t_k_o_shooter}{\section{T\-K\-O\-Shooter Class Reference}
+\label{class_t_k_o_shooter}\index{T\-K\-O\-Shooter@{T\-K\-O\-Shooter}}
+}
+
+
+Code for the Spinner.  
+
+
+
+
+{\ttfamily \#include $<$T\-K\-O\-Shooter.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_t_k_o_shooter_afebd0cc2e0d128cf4ac33db914e57e56}{T\-K\-O\-Shooter} (int port1, int port2)
+\begin{DoxyCompactList}\small\item\em Constructor for the \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter} class. \end{DoxyCompactList}\item 
+\hypertarget{class_t_k_o_shooter_ae3d59bb88578fa48e014887e9ebfc9f2}{\hyperlink{class_t_k_o_shooter_ae3d59bb88578fa48e014887e9ebfc9f2}{$\sim$\-T\-K\-O\-Shooter} ()}\label{class_t_k_o_shooter_ae3d59bb88578fa48e014887e9ebfc9f2}
+
+\begin{DoxyCompactList}\small\item\em Destructor for the \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter} class. \end{DoxyCompactList}\item 
+void \hyperlink{class_t_k_o_shooter_a7a17d08c1435f7a0e200d4309784af5b}{Increase\-Speed} (float sp)
+\begin{DoxyCompactList}\small\item\em Increases \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter} speed. \end{DoxyCompactList}\item 
+void \hyperlink{class_t_k_o_shooter_affb81e799fbb4bb327d6a9d65df968a9}{Decrease\-Speed} (float sp)
+\begin{DoxyCompactList}\small\item\em Decreases \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter} speed. \end{DoxyCompactList}\item 
+bool \hyperlink{class_t_k_o_shooter_a3d5394ebe40c0112519cf50290e99dca}{Is\-Up\-To\-Speed} ()
+\begin{DoxyCompactList}\small\item\em Checks if \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter} is up to speed. \end{DoxyCompactList}\item 
+void \hyperlink{class_t_k_o_shooter_ab3b3f27ccb68e0d2f17beacdf866c6d7}{Shoot} ()
+\begin{DoxyCompactList}\small\item\em Shoots the ball. \end{DoxyCompactList}\item 
+float \hyperlink{class_t_k_o_shooter_a8f00fad59ad921c64dc3c95ce656fb6a}{Get\-Setpoint} ()
+\begin{DoxyCompactList}\small\item\em Returns the setpoint of the \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter}. \end{DoxyCompactList}\item 
+\hypertarget{class_t_k_o_shooter_a60a892c5dbce0e1df280b34a8bbb9e64}{float \hyperlink{class_t_k_o_shooter_a60a892c5dbce0e1df280b34a8bbb9e64}{Get\-Speed} ()}\label{class_t_k_o_shooter_a60a892c5dbce0e1df280b34a8bbb9e64}
+
+\begin{DoxyCompactList}\small\item\em Gets the speed of j1 (Master Jaguar) \end{DoxyCompactList}\item 
+void \hyperlink{class_t_k_o_shooter_afdd4b9253259c236f59dcc73f6c2f691}{Reset} ()
+\begin{DoxyCompactList}\small\item\em Resets the Jaguars. \end{DoxyCompactList}\item 
+bool \hyperlink{class_t_k_o_shooter_ab0a3016dbcd8adb61eadb677e924c64c}{Is\-Alive} ()
+\begin{DoxyCompactList}\small\item\em Checks if the \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter}'s jaguars are alive. \end{DoxyCompactList}\item 
+\hypertarget{class_t_k_o_shooter_a0aa4d4e5c15f2db6b137f575f19ebec1}{void \hyperlink{class_t_k_o_shooter_a0aa4d4e5c15f2db6b137f575f19ebec1}{Read\-Voltage} ()}\label{class_t_k_o_shooter_a0aa4d4e5c15f2db6b137f575f19ebec1}
+
+\begin{DoxyCompactList}\small\item\em Prints output voltage of j1 (Master Jaguar) to the D\-S\-Log. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Code for the Spinner. 
+
+Code for our basic spinner device which is in charge of getting our motors up to speed. Initial code written and class assembled by Tanay Nathan. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_t_k_o_shooter_afebd0cc2e0d128cf4ac33db914e57e56}{\index{T\-K\-O\-Shooter@{T\-K\-O\-Shooter}!T\-K\-O\-Shooter@{T\-K\-O\-Shooter}}
+\index{T\-K\-O\-Shooter@{T\-K\-O\-Shooter}!TKOShooter@{T\-K\-O\-Shooter}}
+\subsubsection[{T\-K\-O\-Shooter}]{\setlength{\rightskip}{0pt plus 5cm}T\-K\-O\-Shooter\-::\-T\-K\-O\-Shooter (
+\begin{DoxyParamCaption}
+\item[{int}]{port1, }
+\item[{int}]{port2}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_shooter_afebd0cc2e0d128cf4ac33db914e57e56}
+
+
+Constructor for the \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter} class. 
+
+Initializes the Master spinner jaguar in Speed mode and the Slave spinner jaguar in percent\-Vbus mode 
+\begin{DoxyParams}{Parameters}
+{\em int} & port1 -\/ Jaguar1's I\-D (Master in Speed Mode) \\
+\hline
+{\em int} & port2 -\/ Jaguar2's I\-D (Slave in percent\-Vbus Mode) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_t_k_o_shooter_affb81e799fbb4bb327d6a9d65df968a9}{\index{T\-K\-O\-Shooter@{T\-K\-O\-Shooter}!Decrease\-Speed@{Decrease\-Speed}}
+\index{Decrease\-Speed@{Decrease\-Speed}!TKOShooter@{T\-K\-O\-Shooter}}
+\subsubsection[{Decrease\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Shooter\-::\-Decrease\-Speed (
+\begin{DoxyParamCaption}
+\item[{float}]{sp}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_shooter_affb81e799fbb4bb327d6a9d65df968a9}
+
+
+Decreases \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter} speed. 
+
+Ramps down speed to the new setpoint (0 min) 
+\begin{DoxyParams}{Parameters}
+{\em float} & sp -\/ New Setpoint in R\-P\-M \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_t_k_o_shooter_a8f00fad59ad921c64dc3c95ce656fb6a}{\index{T\-K\-O\-Shooter@{T\-K\-O\-Shooter}!Get\-Setpoint@{Get\-Setpoint}}
+\index{Get\-Setpoint@{Get\-Setpoint}!TKOShooter@{T\-K\-O\-Shooter}}
+\subsubsection[{Get\-Setpoint}]{\setlength{\rightskip}{0pt plus 5cm}float T\-K\-O\-Shooter\-::\-Get\-Setpoint (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_shooter_a8f00fad59ad921c64dc3c95ce656fb6a}
+
+
+Returns the setpoint of the \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter}. 
+
+\begin{DoxyReturn}{Returns}
+float setpoint -\/ The setpoint which the spinner is trying to reach 
+\end{DoxyReturn}
+\hypertarget{class_t_k_o_shooter_a7a17d08c1435f7a0e200d4309784af5b}{\index{T\-K\-O\-Shooter@{T\-K\-O\-Shooter}!Increase\-Speed@{Increase\-Speed}}
+\index{Increase\-Speed@{Increase\-Speed}!TKOShooter@{T\-K\-O\-Shooter}}
+\subsubsection[{Increase\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Shooter\-::\-Increase\-Speed (
+\begin{DoxyParamCaption}
+\item[{float}]{sp}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_shooter_a7a17d08c1435f7a0e200d4309784af5b}
+
+
+Increases \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter} speed. 
+
+Ramps up speed to the new setpoint (4250 max) 
+\begin{DoxyParams}{Parameters}
+{\em float} & sp -\/ New Setpoint in R\-P\-M \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_t_k_o_shooter_ab0a3016dbcd8adb61eadb677e924c64c}{\index{T\-K\-O\-Shooter@{T\-K\-O\-Shooter}!Is\-Alive@{Is\-Alive}}
+\index{Is\-Alive@{Is\-Alive}!TKOShooter@{T\-K\-O\-Shooter}}
+\subsubsection[{Is\-Alive}]{\setlength{\rightskip}{0pt plus 5cm}bool T\-K\-O\-Shooter\-::\-Is\-Alive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_shooter_ab0a3016dbcd8adb61eadb677e924c64c}
+
+
+Checks if the \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter}'s jaguars are alive. 
+
+\begin{DoxyReturn}{Returns}
+j1.\-Is\-Alive() 
+
+j2.\-Is\-Alive() 
+\end{DoxyReturn}
+\hypertarget{class_t_k_o_shooter_a3d5394ebe40c0112519cf50290e99dca}{\index{T\-K\-O\-Shooter@{T\-K\-O\-Shooter}!Is\-Up\-To\-Speed@{Is\-Up\-To\-Speed}}
+\index{Is\-Up\-To\-Speed@{Is\-Up\-To\-Speed}!TKOShooter@{T\-K\-O\-Shooter}}
+\subsubsection[{Is\-Up\-To\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}bool T\-K\-O\-Shooter\-::\-Is\-Up\-To\-Speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_shooter_a3d5394ebe40c0112519cf50290e99dca}
+
+
+Checks if \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter} is up to speed. 
+
+Returns true if \hyperlink{class_t_k_o_shooter}{T\-K\-O\-Shooter} actual speed matches the setpoint (speed it is supposed to be at) \begin{DoxyReturn}{Returns}
+bool -\/ true if it is up to speed, false if not 
+
+bool -\/ true if it is up to speed, false if not 
+\end{DoxyReturn}
+\hypertarget{class_t_k_o_shooter_afdd4b9253259c236f59dcc73f6c2f691}{\index{T\-K\-O\-Shooter@{T\-K\-O\-Shooter}!Reset@{Reset}}
+\index{Reset@{Reset}!TKOShooter@{T\-K\-O\-Shooter}}
+\subsubsection[{Reset}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Shooter\-::\-Reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_shooter_afdd4b9253259c236f59dcc73f6c2f691}
+
+
+Resets the Jaguars. 
+
+Sets P\-I\-D, Speed\-Reference to the Quad\-Encoder, Encoder\-Codes/\-Rev = 250, and Set Safety is enabled on both Jaguars \hypertarget{class_t_k_o_shooter_ab3b3f27ccb68e0d2f17beacdf866c6d7}{\index{T\-K\-O\-Shooter@{T\-K\-O\-Shooter}!Shoot@{Shoot}}
+\index{Shoot@{Shoot}!TKOShooter@{T\-K\-O\-Shooter}}
+\subsubsection[{Shoot}]{\setlength{\rightskip}{0pt plus 5cm}void T\-K\-O\-Shooter\-::\-Shoot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_t_k_o_shooter_ab3b3f27ccb68e0d2f17beacdf866c6d7}
+
+
+Shoots the ball. 
+
+Sets jaguar1 to the setpoint (R\-P\-M) and sets jaguar2 to voltage of j1 divided by bus voltage at j1. Thus, if battery and therefore bus voltage is low, j1 and j2 output voltage and velocity will remain equal. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+T\-K\-O\-Shooter.\-h\item 
+T\-K\-O\-Shooter.\-cpp\end{DoxyCompactItemize}

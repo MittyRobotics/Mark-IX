@@ -33,7 +33,7 @@ public:
 		drive2(DRIVE_L2_ID),
 		drive3(DRIVE_R1_ID),
 		drive4(DRIVE_R2_ID),
-		turret(TURRET_ID),
+		turret(TURRET_ID), 
 		shooter(SPINNER_1_ID, SPINNER_2_ID),
 		drive(&drive1, &drive2, &drive3, &drive4),
 		sonar(1, 8)

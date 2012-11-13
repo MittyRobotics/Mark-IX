@@ -1,0 +1,20 @@
+MarkX Pre-Season Experimental Code 
+==================================
+
+This code is experimental for the next season,
+when we will make the robot Mark-X. 
+
+
+This code will have a new structure.
+				 
+		      |--- Definitions.h ( Defines constants) 
+		      |
+MarkX Robot Code -----|
+		      |			|-- Operator Code (Drive and Evom)
+		      |--- MarkX.cpp -- |-- Autonomous Code (Self-control)
+					|-- Misc Code (Camera, Logging, etc.)	
+
+The addition of threading means that the classes can be cleaned up a little bit,
+and also separated more, but the majority of change will be in the MarkX.cpp file.
+
+Written by Ritwik Dutta

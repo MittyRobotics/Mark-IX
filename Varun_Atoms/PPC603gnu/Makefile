@@ -31,7 +31,7 @@ else
 MODE_DIR := NonDebug
 endif
 OBJ_DIR := .
-WS_ROOT_DIR := C:/WindRiver/workspace
+WS_ROOT_DIR := F:/Robotics/repos
 PRJ_ROOT_DIR := $(WS_ROOT_DIR)/Varun_Atoms
 
 

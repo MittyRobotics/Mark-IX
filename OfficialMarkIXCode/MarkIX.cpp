@@ -1,4 +1,4 @@
-#include "WPILib.h"
+//#include "WPILib.h"
 #include "Definitions.h"
 #include "TKOShooter.h"
 #include "TKOConveyor.h"
@@ -11,7 +11,7 @@ class MarkIX : public SimpleRobot
 	Documented By Daniel Braginsky of Team 1351
 */
 {
-	Joystick stick1, stick2, stick3, stick4;	
+	Joystick stick1, stick2, stick3, stick4;
 	TKOIntake intake;
 	TKOConveyor conveyor;
 	CANJaguar drive1, drive2, drive3, drive4, turret;
@@ -37,7 +37,7 @@ public:
 	{
 		ds = DriverStation::GetInstance();
 	}
-	
+
 	//! Notifies driver if robot is disabled. Prints "Robot Died!" to console if it is disabled
 	/*!
 	*/
@@ -91,7 +91,7 @@ public:
 			total += shooter.GetSpeed();
 			DSLog(3, "Spinner : %f", average);
 			DSLog(1, "Number of balls: %d", conveyor.GetNumBalls());
-			
+
 			counter++;
 			Wait(.005);
 		}
@@ -108,16 +108,16 @@ public:
 		//BEGIN EVOM
 		if (stick3.GetRawButton(5) && !stick3.GetRawButton(3)) {
 			conveyor.OverrideAll();			// Currently uses a DSLog(2)
-		} 
+		}
 		if (!stick3.GetRawButton(5) && stick3.GetRawButton(3)){
 			conveyor.Run(shooter.IsUpToSpeed());
 		}
 		else if (stick3.GetRawButton(4))
 			conveyor.Reverse();
-		
+
 		if (!stick3.GetRawButton(3) && !stick3.GetRawButton(5) && !stick3.GetRawButton(4)) {
 			conveyor.EndAll();
-		}	
+		}
 		DSLog(2, "Setpoint: %f", shooter.GetSetpoint());
 		if (stick3.GetTrigger()){
 			intake.RollerMove(ROLLER_ON);
