@@ -31,7 +31,7 @@ else
 MODE_DIR := NonDebug
 endif
 OBJ_DIR := .
-WS_ROOT_DIR := F:/Robotics/repos
+WS_ROOT_DIR := C:/Users/Vadim/repos/mark-ix
 PRJ_ROOT_DIR := $(WS_ROOT_DIR)/MarkX_PreCode
 
 
@@ -166,7 +166,37 @@ SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/MarkX.o : $(PRJ_RO
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-OBJECTS_SimpleTemplate_partialImage = SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/MarkX.o
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOAutonomous.o : $(PRJ_ROOT_DIR)/TKOAutonomous.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOConveyor.o : $(PRJ_ROOT_DIR)/TKOConveyor.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOIntake.o : $(PRJ_ROOT_DIR)/TKOIntake.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOLogging.o : $(PRJ_ROOT_DIR)/TKOLogging.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKORelay.o : $(PRJ_ROOT_DIR)/TKORelay.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOShooter.o : $(PRJ_ROOT_DIR)/TKOShooter.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+OBJECTS_SimpleTemplate_partialImage = SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/MarkX.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOAutonomous.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOConveyor.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOIntake.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOLogging.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKORelay.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOShooter.o
 
 SimpleTemplate_partialImage/$(MODE_DIR)/SimpleTemplate_partialImage.o : $(OBJECTS_SimpleTemplate_partialImage)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc -r -nostdlib -Wl,-X  -o "$@" $(OBJECTS_SimpleTemplate_partialImage) $(LIBPATH) $(LIBS) $(ADDED_LIBPATH) $(ADDED_LIBS)  && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
@@ -180,7 +210,9 @@ SimpleTemplate_partialImage/$(MODE_DIR)/SimpleTemplate_partialImage_clean :
 
 force : 
 
-DEP_FILES := SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/MarkX.d
+DEP_FILES := SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/MarkX.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOAutonomous.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOConveyor.d \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOIntake.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOLogging.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKORelay.d \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/MarkX_PreCode/TKOShooter.d
 -include $(DEP_FILES)
 
 
