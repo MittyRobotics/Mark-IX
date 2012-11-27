@@ -22,6 +22,7 @@ public:
 	void PIDDriveStraight();
 	void driveLeft();
 	void driveRight();
+	void straightTest();
 	void shooting(TKOShooter* shooter, TKOConveyor* conveyor);
 	void initAutonomous();
 	float getPosition(int jaguar);

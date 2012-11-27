@@ -5,7 +5,7 @@
 ///Constructor for the TKOAutonomous class
 
 TKOAutonomous::TKOAutonomous(int port1, int port2, int port3, int port4) :
-			drive1(port1, CANJaguar::kPosition),
+	drive1(port1, CANJaguar::kPosition),
 			drive2(port2, CANJaguar::kPercentVbus),
 			drive3(port3, CANJaguar::kPosition),
 			drive4(port4, CANJaguar::kPercentVbus)
@@ -61,14 +61,15 @@ void TKOAutonomous::autonomousCode(TKOShooter* shooter, TKOConveyor* conveyor)
 		stopAutonomous(shooter, conveyor);
 	if (!ds->IsAutonomous())
 		stopAutonomous(shooter, conveyor);
-	if (autonTimer.Get() <= 5)
-		shooting(shooter, conveyor);
-	if (autonTimer.Get() > 5)
-		PIDDriveStraight(); //this is the driving part of code, in the PIDDrive function in this class
+	//	if (autonTimer.Get() <= 5)
+	//		shooting(shooter, conveyor);
+	if (autonTimer.Get() > 1)
+		//PIDDriveStraight(); //this is the driving part of code, in the PIDDrive function in this class
+		straightTest(); //testing the way to set right side to power of left side because of the driving to the side problem
 
 	if ((int) autonTimer.Get() % 50 == 0)
 		shooter->Reset();
-	
+
 	DSLog(1, "Running Auton: %i", runningAuton);
 	DSLog(3, "Timer: %f", autonTimer.Get());
 	DSLog(4, "Drive1 pos: %f", getPosition(1)); //uses the TKOAutonomous getPosition
@@ -80,7 +81,8 @@ void TKOAutonomous::shooting(TKOShooter* shooter, TKOConveyor* conveyor)
 	shooter->IncreaseSpeed(4250 * ds->GetAnalogIn(4));
 	shooter->Shoot();
 
-	if (shooter->ReadyToFire() && shooter->IsAlive() && autonTimer.Get() > 1 && autonTimer.Get() <= 5)
+	if (shooter->ReadyToFire() && shooter->IsAlive() && autonTimer.Get() > 1
+			&& autonTimer.Get() <= 5)
 		conveyor->OverrideAll();
 	else
 		conveyor->EndAll();
@@ -98,22 +100,29 @@ void TKOAutonomous::driveRight()
 
 void TKOAutonomous::PIDDriveStraight()
 {
-		driveLeft();
-		driveRight();
+	driveLeft();
+	driveRight();
+}
+void TKOAutonomous::straightTest()
+{
+	drive1.Set(driveTargetLeft); //sets pid drive target
+	drive2.Set(-drive1.GetOutputVoltage() / drive1.GetBusVoltage());
+	drive3.Set(drive1.GetOutputVoltage() / drive1.GetBusVoltage());
+	drive4.Set(-drive1.GetOutputVoltage() / drive1.GetBusVoltage());
 }
 void TKOAutonomous::setDrivePID(float P, float I, float D) //Sets drive1 and drive3 PID because only they have encoders
 {
-	drive1.SetPID(-P, I, D);
+	drive1.SetPID(P, I, D);
 	drive3.SetPID(P, I, D);
 }
 void TKOAutonomous::setDriveTargetStraight(float target)
 {
-	driveTargetLeft = target;
+	driveTargetLeft = -target;
 	driveTargetRight = -target;
 }
 void TKOAutonomous::setDriveTargetLeft(float target)
 {
-	driveTargetLeft = target;
+	driveTargetLeft = -target;
 }
 void TKOAutonomous::setDriveTargetRight(float target)
 {
@@ -122,7 +131,7 @@ void TKOAutonomous::setDriveTargetRight(float target)
 float TKOAutonomous::getPosition(int jaguar) //1 and 3 are only ones with encoders
 {
 	if (jaguar == 1)
-		return drive1.GetPosition();
+		return -drive1.GetPosition();
 	else if (jaguar == 3)
 		return -drive3.GetPosition();
 	else

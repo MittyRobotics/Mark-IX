@@ -7,6 +7,7 @@
 #include "TKOIntake.h"
 #include "TKORelay.h"
 #include "TKOAutonomous.h"
+#include "TKOGyro.h"
 
 class MarkIX: public SimpleRobot
 /// Main Robot Code
@@ -21,6 +22,7 @@ class MarkIX: public SimpleRobot
 	TKOShooter shooter;
 	RobotDrive drive;
 	TKOAutonomous auton;
+	TKOGyro gyro;
 	DriverStation *ds;
 	AnalogChannel sonar;
 	bool usingTank;
@@ -36,7 +38,7 @@ public:
 						LOWER_RELAY_PORT), drive1(DRIVE_L1_ID), drive2(DRIVE_L2_ID),
 				drive3(DRIVE_R1_ID), drive4(DRIVE_R2_ID), turret(TURRET_ID),
 				shooter(SPINNER_1_ID, SPINNER_2_ID), drive(&drive1, &drive2, &drive3, &drive4),
-				auton(DRIVE_L1_ID, DRIVE_L2_ID, DRIVE_R1_ID, DRIVE_R2_ID), sonar(1, 8)
+				auton(DRIVE_L1_ID, DRIVE_L2_ID, DRIVE_R1_ID, DRIVE_R2_ID), sonar(1, 8), gyro(1)
 	{
 		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
@@ -57,8 +59,8 @@ public:
 	void Autonomous(void)
 	{
 		auton.initAutonomous();
-		auton.setDrivePID(50, 0.05, .01);
-		auton.setDriveTargetStraight(REVS_PER_METER);
+		auton.setDrivePID(30, 0.1, 0.01);
+		auton.setDriveTargetStraight(ds->GetAnalogIn(1) * 100 * REVS_PER_METER);
 		auton.startAutonomous();
 
 		while (auton.autonTimer.Get() < 15 && auton.runningAuton)
@@ -82,6 +84,7 @@ public:
 
 	void OperatorControl(void)
 	{
+		gyro.Reset();
 		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
 		conveyor.EndAll();
@@ -105,7 +108,7 @@ public:
 			else
 				loopStartTime = timer->Get();
 			DSLog(5, "Position: %f ", auton.getPosition(1));
-			DSLog(6, "LoopDuration: %f", loopDuration);
+			DSLog(6, "Gyro Angle: ", gyro.GetError().GetMessage());
 			printf("Spinner Jag 1: %f \r\n", shooter.GetJag1Speed());
 			printf("Spinner Jag 2: %f \r\n", shooter.GetJag2Speed());
 			Operator();

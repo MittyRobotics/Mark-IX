@@ -174,6 +174,10 @@ SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOConveyor.
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOGyro.o : $(PRJ_ROOT_DIR)/TKOGyro.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOIntake.o : $(PRJ_ROOT_DIR)/TKOIntake.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
@@ -193,6 +197,7 @@ SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOShooter.o
 OBJECTS_SimpleTemplate_partialImage = SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/MarkIX.o \
 	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOAutonomous.o \
 	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOConveyor.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOGyro.o \
 	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOIntake.o \
 	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOLogging.o \
 	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKORelay.o \
@@ -211,8 +216,8 @@ SimpleTemplate_partialImage/$(MODE_DIR)/SimpleTemplate_partialImage_clean :
 force : 
 
 DEP_FILES := SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/MarkIX.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOAutonomous.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOConveyor.d \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOIntake.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOLogging.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKORelay.d \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOShooter.d
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOGyro.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOIntake.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOLogging.d \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKORelay.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/NOV2012AutonTesting/TKOShooter.d
 -include $(DEP_FILES)
 
 
