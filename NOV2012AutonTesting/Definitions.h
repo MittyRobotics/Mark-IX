@@ -87,6 +87,10 @@ const int BORDER_SIZE = 3;
 const float PI = 3.14159265;
 const float DEGREES_PER_RADIAN = 180 / PI;
 
+//Autonomous Constants
+const float RAMP_RATE = 0.005;
+const float RAMP_RATE_2 = 0.0005;
+
 const float TANGENT_VERTICAL_CAMERA_ANGLE = tan(19 / DEGREES_PER_RADIAN);
 const float TANGENT_HORIZONTAL_CAMERA_ANGLE = tan(27. / DEGREES_PER_RADIAN);	// TODO: Find this
 const int SCREEN_WIDTH_PIXELS = 320;

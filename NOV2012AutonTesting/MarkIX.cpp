@@ -1,5 +1,5 @@
 //Last edited by Vadim Korolik
-//on 11/06/2012
+//on 11/27/2012
 #include "WPILib.h"
 #include "Definitions.h"
 #include "TKOShooter.h"
@@ -59,11 +59,13 @@ public:
 	void Autonomous(void)
 	{
 		auton.initAutonomous();
-		auton.setDrivePID(30, 0.1, 0.01);
-		auton.setDriveTargetStraight(ds->GetAnalogIn(1) * 100 * REVS_PER_METER);
+		auton.setDrivePID(30, 0.05, 0.01);
+		auton.setDriveTargetStraight(ds->GetAnalogIn(1) * 10 * REVS_PER_METER);
 		auton.startAutonomous();
+		
+		intake.WristMove(1);
 
-		while (auton.autonTimer.Get() < 15 && auton.runningAuton)
+		while (auton.autonTimer.Get() < 30 && auton.runningAuton)
 		{
 			if (!ds->IsAutonomous())
 				auton.stopAutonomous(&shooter, &conveyor);
@@ -108,7 +110,7 @@ public:
 			else
 				loopStartTime = timer->Get();
 			DSLog(5, "Position: %f ", auton.getPosition(1));
-			DSLog(6, "Gyro Angle: ", gyro.GetError().GetMessage());
+			DSLog(6, "Position3: %f ", auton.getPosition(3));
 			printf("Spinner Jag 1: %f \r\n", shooter.GetJag1Speed());
 			printf("Spinner Jag 2: %f \r\n", shooter.GetJag2Speed());
 			Operator();
@@ -119,7 +121,7 @@ public:
 				DSLog(4, "Actual: %f", shooter.GetSpeed() );
 			}
 			total += shooter.GetSpeed();
-			DSLog(3, "Spinner : %f", average);
+			DSLog(3, "Average: %f", average);
 			DSLog(1, "Number of balls: %d", conveyor.GetNumBalls());
 			DSLog(2, "Setpoint: %f", shooter.GetSetpoint());
 

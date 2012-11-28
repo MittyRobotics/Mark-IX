@@ -1,5 +1,5 @@
 //Last edited by Vadim Korolik
-//on 11/06/2012
+//on 11/27/2012
 #ifndef __TKOAUTONOMOUS_H
 #define __TKOAUTONOMOUS_H
 
@@ -22,17 +22,22 @@ public:
 	void PIDDriveStraight();
 	void driveLeft();
 	void driveRight();
-	void straightTest();
+//	void straightTest();
 	void shooting(TKOShooter* shooter, TKOConveyor* conveyor);
 	void initAutonomous();
 	float getPosition(int jaguar);
+	float getTarget(int jaguar);
 	bool runningAuton;
 	Timer autonTimer;
 private:
 	CANJaguar drive1, drive2, drive3, drive4;
 	DriverStation *ds;
-	float driveTargetLeft;
-	float driveTargetRight;
+	float rampTargetLeft;
+	float rampTargetRight;
+	float rightTarget;
+	float leftTarget;
+	float rampRate;
+	float rampRate2;
 };
 
 #endif
