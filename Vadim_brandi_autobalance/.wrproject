@@ -246,12 +246,12 @@
     <buildtargets>
         <buildtarget buildtool="Linker" name="SimpleTemplate" passed="false" targetname="SimpleTemplate">
             <contents>
-                <buildtargetreference name="/MarkIX_Tanay/SimpleTemplate_partialImage"/>
+                <folder name="/Vadim_brandi_autobalance" recursive="true"/>
             </contents>
         </buildtarget>
         <buildtarget buildtool="Partial Image Linker" name="SimpleTemplate_partialImage" passed="true" targetname="SimpleTemplate_partialImage">
             <contents>
-                <folder name="/MarkIX_Tanay" recursive="true"/>
+                <folder name="/Vadim_brandi_autobalance" recursive="true"/>
             </contents>
         </buildtarget>
     </buildtargets>

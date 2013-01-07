@@ -32,7 +32,7 @@ class RobotDemo : public SimpleRobot
 
 public:
 	RobotDemo(void):
-		gyro(1),
+		gyro(1, 1),
 //		myRobot(1, 2),	// these must be initialized in the same order
 		stick1(1),
 		stick2(2),		// as they are declared above.
