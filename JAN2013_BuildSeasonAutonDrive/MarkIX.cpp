@@ -39,6 +39,11 @@ public:
 	{
 		drive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 		drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
+		drive.SetSafetyEnabled(true);
+		printf("Drive isAlive? %d", drive.IsAlive());
+		printf("\n");
+		printf("Drive Safety Enabled: %d", drive.IsSafetyEnabled());
+		printf("\n");
 		ds = DriverStation::GetInstance();
 	}
 
@@ -55,6 +60,7 @@ public:
 	 */
 	void Autonomous(void)
 	{
+		printf("Enabling autonomous! \n");
 		auton.initAutonomous();
 		auton.setDrivePID(20, 0.05, 0.01);
 		auton.setTargetAngle(0);
@@ -64,10 +70,10 @@ public:
 		
 		intake.WristMove(1);
 
-		while (auton.autonTimer.Get() < 15 && auton.runningAuton)
+		while (auton.autonTimer.Get() < 30 && auton.runningAuton)
 		{
 			if (!ds->IsAutonomous())
-				auton.stopAutonomous(&shooter, &conveyor);
+				auton.stopAutonomous(&shooter, &conveyor);//LOL VADIM DONT LEAVE YOUR LAPTOP UNLOCKED
 			if (auton.autonTimer.Get() > 5)
 				conveyor.EndAll();
 			
@@ -110,8 +116,8 @@ public:
 			}
 			else
 				loopStartTime = timer->Get();
-			printf("Spinner Jag 1: %f \r\n", shooter.GetJag1Speed());
-			printf("Spinner Jag 2: %f \r\n", shooter.GetJag2Speed());
+//			printf("Spinner Jag 1: %f \r\n", shooter.GetJag1Speed());
+//			printf("Spinner Jag 2: %f \r\n", shooter.GetJag2Speed());
 			Operator();
 			if (counter % 30 == 0)
 			{

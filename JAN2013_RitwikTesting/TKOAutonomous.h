@@ -17,20 +17,16 @@ public:
 	void startAutonomous();
 	void stopAutonomous(TKOShooter* shooter, TKOConveyor* conveyor);
 	void setDrivePID(float P, float I, float D);
-	void setDriveTargetStraight(float target);
-	void setDriveTargetLeft(float target);
-	void setDriveTargetRight(float target);
-	void setTargetAngle(float target);
-	void PIDDriveStraight();
+	void PIDDrive(float leftTarget, float rightTarget);
 	void driveLeft();
 	void driveRight();
-	void gyroDrive();
+	void ramp();
 	void shooting(TKOShooter* shooter, TKOConveyor* conveyor);
-	void turnRight(double targetTheta);
-	bool turnRight2(double target);
+	bool turn(double target);
 	void initAutonomous();
 	float getPosition(int jaguar);
 	float getTarget(int jaguar);
+	float getGyroAngle();
 	float getGyroError();
 	bool runningAuton;
 	Timer autonTimer;
@@ -44,7 +40,6 @@ private:
 	float leftTarget;
 	float rampRate;
 	float rampRate2;
-	float targetAngle;
 	bool reachedTarget;
 };
 

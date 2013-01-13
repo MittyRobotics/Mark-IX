@@ -31,6 +31,7 @@ public:
 	void initAutonomous();
 	float getPosition(int jaguar);
 	float getTarget(int jaguar);
+	float getGyroAngle();
 	float getGyroError();
 	bool runningAuton;
 	Timer autonTimer;

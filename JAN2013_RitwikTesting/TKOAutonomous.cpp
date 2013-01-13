@@ -34,6 +34,8 @@ void TKOAutonomous::initAutonomous()
 	drive4.EnableControl();
 	drive4.SetSafetyEnabled(true);
 
+	gyro.SetSensitivity(0.007);
+
 	runningAuton = false;
 	rampRate = RAMP_RATE;
 	rampRate2 = RAMP_RATE_2;
@@ -72,13 +74,10 @@ void TKOAutonomous::autonomousCode(TKOShooter* shooter, TKOConveyor* conveyor)
 	//		shooting(shooter, conveyor);
 	if (autonTimer.Get() > 1)
 	{
-		rampRate += rampRate2;
-		//		PIDDriveStraight(); //this is the driving part of code, in the PIDDrive function in this class
-		//		gyroDrive();
 		printf("About to start turning \n");
-		if (turnRight2(ds->GetAnalogIn(3) * 100))
+		if (turn(ds->GetAnalogIn(3) * -100))
 		{
-			PIDDriveStraight();
+			//PIDDriveStraight(ds->GetAnalogIn(1) * 10 * REVS_PER_METER);
 		}
 		else
 		{
@@ -108,6 +107,10 @@ void TKOAutonomous::autonomousCode(TKOShooter* shooter, TKOConveyor* conveyor)
 	printf("Jag 3 Target: %f", getTarget(3));
 	printf("\n");
 }
+void TKOAutonomous::ramp()
+{
+	rampRate += rampRate2;
+}
 void TKOAutonomous::shooting(TKOShooter* shooter, TKOConveyor* conveyor)
 {
 	shooter->IncreaseSpeed(4250 * ds->GetAnalogIn(4));
@@ -136,68 +139,30 @@ void TKOAutonomous::driveRight()
 	drive4.Set(-drive3.GetOutputVoltage() / drive3.GetBusVoltage()); //sets second and fourth jags in slave mode
 }
 
-void TKOAutonomous::PIDDriveStraight()
+void TKOAutonomous::PIDDrive(float leftTarget, float rightTarget)
 {
+	rampTargetLeft = leftTarget;
+	rampTargetRight = rightTarget;
+	ramp();
 	printf("Driving straight!\n");
 	driveLeft();
 	driveRight();
 }
-void TKOAutonomous::gyroDrive() //neg angle = left, pos angle = right
-{
-	driveLeft();
-	driveRight();
-	setDriveTargetRight(rampTargetRight + getGyroError());
-}
 
-void TKOAutonomous::turnRight(double targetTheta)
+bool TKOAutonomous::turn(double target) //TODO let it take neg values
 {
-	bool turning = true;
-	double currAngle = gyro.GetAngle();
-	if (rampTargetRight != drive1.GetPosition())
-		rampTargetRight = drive1.GetPosition();
-
-	if (!turning)
-	{
-		//		DSLog(5, "Done turning");
-		printf("Reached goal, breaking out \n");
-		return;
-	}
-	currAngle = gyro.GetAngle();
-	if (currAngle < targetTheta)
-	{
-		if (!(rampTargetLeft - 10 > drive1.GetPosition())) //replace leftTarget with drive1 getPos
-		{
-			rampTargetLeft += 0.1;
-			printf("Adding to target \n");
-		}
-	}
-	if (currAngle + 3.0 >= targetTheta)
-	{
-		if (currAngle - 3.0 <= targetTheta)
-		{
-			turning = false;
-			rampTargetRight = drive1.GetPosition();
-			printf("Reached goal, breaking out \n");
-			return;
-		}
-	}
-	driveLeft();
-}
-
-bool TKOAutonomous::turnRight2(double target)
-{
-//	if (reachedTarget)
-//		return true;
+	//	if (reachedTarget)
+	//		return true;
 	double currAngle = gyro.GetAngle();
 	if (currAngle < target - 1 && !(target < currAngle))
 	{
 		printf("Turning right \n");
-		drive2.Set(0.9);
-		drive4.Set(-0.9);
+		drive2.Set(0.7);
+		drive4.Set(-0.7);
 	}
-	if (currAngle + 5.0 >= target)
+	if (currAngle + 2.0 >= target)
 	{
-		if (currAngle - 5.0 <= target)
+		if (currAngle - 2.0 <= target)
 		{
 			drive2.Set(0);
 			drive4.Set(0);
@@ -206,10 +171,10 @@ bool TKOAutonomous::turnRight2(double target)
 			if (!reachedTarget)
 			{
 				reachedTarget = true;
-				//				drive1.DisableControl();
-				//				drive3.DisableControl();
-				//				drive1.EnableControl();
-				//				drive3.EnableControl();
+				drive1.DisableControl();
+				drive3.DisableControl();
+				drive1.EnableControl();
+				drive3.EnableControl();
 				printf("Reset position\n"); //All this resetting does not work properly, needs to be fixed
 				//Cannot go without it because when the robot turns, it affects the position
 			}
@@ -230,33 +195,6 @@ void TKOAutonomous::setDrivePID(float P, float I, float D) //Sets drive1 and dri
 	drive1.SetPID(P, I, D);
 	drive3.SetPID(P, I, D);
 }
-void TKOAutonomous::setDriveTargetStraight(float target)
-{
-	rampTargetLeft = target;
-	rampTargetRight = target;
-}
-void TKOAutonomous::setDriveTargetLeft(float target)
-{
-	rampTargetLeft = target;
-}
-void TKOAutonomous::setDriveTargetRight(float target)
-{
-	rampTargetRight = target;
-}
-void TKOAutonomous::setTargetAngle(float target)
-{
-	targetAngle = target;
-}
-float TKOAutonomous::getGyroError()
-{
-	// 180 * 3.14159; //converting raw degrees to radians the ghetto way
-	//return 0;
-	float angle = gyro.GetAngle();
-	if (angle > 0)
-		return (-targetAngle + angle) * 2 / 180;
-	else
-		return (targetAngle + angle) * 2 / 180;
-}
 float TKOAutonomous::getPosition(int jaguar) //1 and 3 are only ones with encoders
 {
 	if (jaguar == 1)
@@ -265,6 +203,10 @@ float TKOAutonomous::getPosition(int jaguar) //1 and 3 are only ones with encode
 		return drive3.GetPosition();
 	else
 		return 13.51; //if it gives 13.51, then you entered wrong jaguar id
+}
+float TKOAutonomous::getGyroAngle() //1 and 3 are only ones with encoders
+{
+	return gyro.GetAngle();
 }
 float TKOAutonomous::getTarget(int jaguar) //1 and 3 are only ones with encoders
 {

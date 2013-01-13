@@ -32,7 +32,7 @@ MODE_DIR := NonDebug
 endif
 OBJ_DIR := .
 WS_ROOT_DIR := C:/Users/Vadim/repos/mark-ix
-PRJ_ROOT_DIR := $(WS_ROOT_DIR)/JAN2013_BuildSeasonAutonDrive
+PRJ_ROOT_DIR := $(WS_ROOT_DIR)/RitwikLogging_MarkX_PreCode
 
 
 
@@ -117,41 +117,21 @@ SimpleTemplate/$(MODE_DIR)/% : LIBPATH =
 SimpleTemplate/$(MODE_DIR)/% : LIBS = 
 SimpleTemplate/$(MODE_DIR)/% : OBJ_DIR := SimpleTemplate/$(MODE_DIR)
 
-SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/MarkIX.o : $(PRJ_ROOT_DIR)/MarkIX.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/Logger.o : $(PRJ_ROOT_DIR)/Logger.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOAutonomous.o : $(PRJ_ROOT_DIR)/TKOAutonomous.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/MarkX.o : $(PRJ_ROOT_DIR)/MarkX.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOConveyor.o : $(PRJ_ROOT_DIR)/TKOConveyor.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/TKOLogging.o : $(PRJ_ROOT_DIR)/TKOLogging.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOIntake.o : $(PRJ_ROOT_DIR)/TKOIntake.cpp $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
-
-SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOLogging.o : $(PRJ_ROOT_DIR)/TKOLogging.cpp $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
-
-SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKORelay.o : $(PRJ_ROOT_DIR)/TKORelay.cpp $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
-
-SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOShooter.o : $(PRJ_ROOT_DIR)/TKOShooter.cpp $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
-
-OBJECTS_SimpleTemplate = SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/MarkIX.o \
-	 SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOAutonomous.o \
-	 SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOConveyor.o \
-	 SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOIntake.o \
-	 SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOLogging.o \
-	 SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKORelay.o \
-	 SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOShooter.o
+OBJECTS_SimpleTemplate = SimpleTemplate/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/Logger.o \
+	 SimpleTemplate/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/MarkX.o \
+	 SimpleTemplate/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/TKOLogging.o
 
 SimpleTemplate/$(MODE_DIR)/SimpleTemplate.out : $(OBJECTS_SimpleTemplate)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@";rm -f "$@";nmppc $(OBJECTS_SimpleTemplate) $(IDE_LIBRARIES) | tclsh $(WIND_BASE)/host/resource/hutils/tcl/munch.tcl -c ppc > $(OBJ_DIR)/ctdt.c; $(TOOL_PATH)ccppc $(DEBUGFLAGS_Linker) $(CC_ARCH_SPEC) -fdollars-in-identifiers -Wall $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES)  -o $(OBJ_DIR)/ctdt.o -c $(OBJ_DIR)/ctdt.c; $(TOOL_PATH)ccppc -r -nostdlib -Wl,-X -T $(WIND_BASE)/target/h/tool/gnu/ldscripts/link.OUT -o "$@" $(OBJ_DIR)/ctdt.o $(OBJECTS_SimpleTemplate) $(IDE_LIBRARIES) $(LIBPATH) $(LIBS)  $(ADDED_LIBPATH) $(ADDED_LIBS) && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
@@ -196,41 +176,21 @@ SimpleTemplate_partialImage/$(MODE_DIR)/% : LIBPATH =
 SimpleTemplate_partialImage/$(MODE_DIR)/% : LIBS = 
 SimpleTemplate_partialImage/$(MODE_DIR)/% : OBJ_DIR := SimpleTemplate_partialImage/$(MODE_DIR)
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/MarkIX.o : $(PRJ_ROOT_DIR)/MarkIX.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/Logger.o : $(PRJ_ROOT_DIR)/Logger.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOAutonomous.o : $(PRJ_ROOT_DIR)/TKOAutonomous.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/MarkX.o : $(PRJ_ROOT_DIR)/MarkX.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOConveyor.o : $(PRJ_ROOT_DIR)/TKOConveyor.cpp $(FORCE_FILE_BUILD)
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/TKOLogging.o : $(PRJ_ROOT_DIR)/TKOLogging.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOIntake.o : $(PRJ_ROOT_DIR)/TKOIntake.cpp $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
-
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOLogging.o : $(PRJ_ROOT_DIR)/TKOLogging.cpp $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
-
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKORelay.o : $(PRJ_ROOT_DIR)/TKORelay.cpp $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
-
-SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOShooter.o : $(PRJ_ROOT_DIR)/TKOShooter.cpp $(FORCE_FILE_BUILD)
-	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
-
-
-OBJECTS_SimpleTemplate_partialImage = SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/MarkIX.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOAutonomous.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOConveyor.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOIntake.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOLogging.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKORelay.o \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOShooter.o
+OBJECTS_SimpleTemplate_partialImage = SimpleTemplate_partialImage/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/Logger.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/MarkX.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/TKOLogging.o
 
 SimpleTemplate_partialImage/$(MODE_DIR)/SimpleTemplate_partialImage.o : $(OBJECTS_SimpleTemplate_partialImage)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc -r -nostdlib -Wl,-X  -o "$@" $(OBJECTS_SimpleTemplate_partialImage) $(LIBPATH) $(LIBS) $(ADDED_LIBPATH) $(ADDED_LIBS)  && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
@@ -244,11 +204,8 @@ SimpleTemplate_partialImage/$(MODE_DIR)/SimpleTemplate_partialImage_clean :
 
 force : 
 
-DEP_FILES := SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/MarkIX.d SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOAutonomous.d SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOConveyor.d \
-	 SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOIntake.d SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOLogging.d SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKORelay.d \
-	 SimpleTemplate/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOShooter.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/MarkIX.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOAutonomous.d \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOConveyor.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOIntake.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOLogging.d \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKORelay.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/JAN2013_BuildSeasonAutonDrive/TKOShooter.d
+DEP_FILES := SimpleTemplate/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/Logger.d SimpleTemplate/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/MarkX.d SimpleTemplate/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/TKOLogging.d \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/Logger.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/MarkX.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/RitwikLogging_MarkX_PreCode/TKOLogging.d
 -include $(DEP_FILES)
 
 
